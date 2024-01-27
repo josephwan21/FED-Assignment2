@@ -1,3 +1,42 @@
 body {
     background-color: #ffd8a8;
 }
+
+header{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#signin{
+    margin-left: 60px;
+}
+
+#signinbtn{
+    margin-left: 90px;
+    margin-bottom: -165px;
+}
+
+#createbtn{
+    margin-left: 95px;
+}
+.small-input{
+    width: 250px;
+}
+
+.container-signin{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    width: 275px;
+    height: 330px;
+}
+
+.container-createacc{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    width: 275px;
+}
+
+
