@@ -2,29 +2,30 @@ body {
     background-color: #ffd8a8;
 }
 
-header{
+/* Login */
+.login-header {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     padding: 10px;
 }
 
-#signin{
+#signin {
     margin-left: 60px;
 }
 
-#signinbtn{
+#signinbtn {
     margin-left: 90px;
     margin-bottom: -165px;
 }
 
-#createbtn{
+#createbtn {
     margin-left: 95px;
 }
-.small-input{
+.small-input {
     width: 250px;
 }
 
-.container-signin{
+.container-signin {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
     border-radius: 10px;
@@ -32,11 +33,20 @@ header{
     height: 330px;
 }
 
-.container-createacc{
+.container-createacc {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
     border-radius: 10px;
     width: 275px;
 }
 
+/* Games */
+.leaderboard-button,
+.leaderboard-button:hover,
+.leaderboard-button:active,
+.leaderboard-button:visited {
+    background-color: #f8f9fa;
 
+    --bs-btn-active-color: black;
+    --bs-btn-active-bg: #f8f9fa;
+}
