@@ -1,5 +1,6 @@
 body {
-    background-color: #ffd8a8;
+    /* background-color: #ffd8a8; */
+    background-color: white;
 }
 
 /* Login */
@@ -45,8 +46,28 @@ body {
 .leaderboard-button:hover,
 .leaderboard-button:active,
 .leaderboard-button:visited {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: #0dcaf0;
 
     --bs-btn-active-color: black;
-    --bs-btn-active-bg: #f8f9fa;
+    /* --bs-btn-active-bg: #f8f9fa; */
+    --bs-btn-active-bg: #0dcaf0;
 }
+
+.btn-check:checked + .btn,
+.btn-active,
+.btn-show {
+    color: #0dcaf0;
+}
+
+/* .btn-primary {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #0db8da;
+    border-color: #0db8da;
+} */
