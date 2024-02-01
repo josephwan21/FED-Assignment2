@@ -41,33 +41,39 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Trophies</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
                                 <tr class="table-active">
                                     <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>Timothy</td>
+                                    <td>5726</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
+                                    <td>Otto</td>
+                                    <td>1001</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="modal-footer"></div>
+                    <!-- <div class="modal-footer">
+                        
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div> -->
                 </div>
             </div>
         </div>
         <header>
-            <nav class="navbar navbar-expand-sm bg-body-tertiary">
+            <nav class="navbar navbar-expand-sm bg-body-tertiary fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">Navbar</a>
                     <button
@@ -202,123 +208,137 @@
                 </div>
             </nav>
         </header>
+
         <article class="container-md text-center">
-            <section class="">
-                <h1>New Trivia</h1>
-                <p>Level up to unlock more categories and difficulties!</p>
-            </section>
-            <section class="">
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option1"
-                    autocomplete="off"
-                    checked
-                />
+            <div class="row gy-5 my-5">
+                <section class="col">
+                    <h1>New Trivia</h1>
+                    <p>Level up to unlock more categories and difficulties!</p>
+                </section>
+            </div>
+            <div class="row gy-5 mb-5">
+                <section class="col">
+                    <h5>Topic</h5>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option1"
+                        autocomplete="off"
+                        checked
+                    />
 
-                <label class="btn" for="category-option1"
-                    >General Knowledge</label
-                >
+                    <label class="btn" for="category-option1"
+                        >General Knowledge</label
+                    >
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option2"
-                    autocomplete="off"
-                />
-                <label class="btn" for="category-option2">Computers</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option2"
+                        autocomplete="off"
+                    />
+                    <label class="btn" for="category-option2">Computers</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option3"
-                    autocomplete="off"
-                />
-                <label class="btn" for="category-option3">Geography</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option3"
+                        autocomplete="off"
+                    />
+                    <label class="btn" for="category-option3">Geography</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option4"
-                    autocomplete="off"
-                />
-                <label class="btn" for="category-option4">History</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option4"
+                        autocomplete="off"
+                    />
+                    <label class="btn" for="category-option4">History</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option5"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="category-option5">Board Games</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option5"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="category-option5"
+                        >Board Games</label
+                    >
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option6"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="category-option6">Video Games</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option6"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="category-option6"
+                        >Video Games</label
+                    >
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option7"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="category-option7">Vehicles</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option7"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="category-option7">Vehicles</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="category-options-base"
-                    id="category-option8"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="category-option8">Politics</label>
-            </section>
-            <section>
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="difficulty-options-base"
-                    id="difficulty-option1"
-                    autocomplete="off"
-                    checked
-                />
-                <label class="btn" for="difficulty-option1">Easy</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="category-options-base"
+                        id="category-option8"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="category-option8">Politics</label>
+                </section>
+            </div>
+            <div class="row gy-5 mb-5">
+                <section class="col">
+                    <h5>Difficulty</h5>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="difficulty-options-base"
+                        id="difficulty-option1"
+                        autocomplete="off"
+                        checked
+                    />
+                    <label class="btn" for="difficulty-option1">Easy</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="difficulty-options-base"
-                    id="difficulty-option2"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="difficulty-option2">Medium</label>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="difficulty-options-base"
+                        id="difficulty-option2"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="difficulty-option2">Medium</label>
 
-                <input
-                    type="radio"
-                    class="btn-check"
-                    name="difficulty-options-base"
-                    id="difficulty-option3"
-                    autocomplete="off"
-                    disabled
-                />
-                <label class="btn" for="difficulty-option3">Hard</label>
-            </section>
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="difficulty-options-base"
+                        id="difficulty-option3"
+                        autocomplete="off"
+                        disabled
+                    />
+                    <label class="btn" for="difficulty-option3">Hard</label>
+                </section>
+            </div>
+
             <button
                 type="button"
                 class="btn btn-primary"
