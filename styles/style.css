@@ -5,21 +5,18 @@ body {
 
 /* Login */
 .login-header {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(13, 202, 240, 0.6);
     border-radius: 10px;
     padding: 10px;
 }
 
-#signin {
-    margin-left: 60px;
-}
 
 #signinbtn {
     margin-left: 90px;
     margin-bottom: -165px;
 }
 
-#createbtn {
+#create-btn {
     margin-left: 95px;
 }
 .small-input {
@@ -27,7 +24,7 @@ body {
 }
 
 .container-signin {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(13, 202, 240, 0.45);
     padding: 10px;
     border-radius: 10px;
     width: 275px;
@@ -35,10 +32,27 @@ body {
 }
 
 .container-createacc {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(13, 202, 240, 0.45);
     padding: 10px;
     border-radius: 10px;
     width: 275px;
+}
+
+#topic-name{
+    background-color: rgba(13, 202, 240, 0.6);
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.transparent-rectangle{
+    background-color: rgba(13, 202, 240, 0.4);
+    border-radius: 10px;
+}
+
+.question-block{
+    background-color: rgba(255,255,255, 0.6);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /* Games */
