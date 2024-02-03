@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.opacity = 1;
     const APIKEY = "65bde72ec029b8514466ce5b";
 
     // Function to handle create account form submission
@@ -8,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let createPassword = document.getElementById("create-password").value;
 
         let jsondata = {
-            "email": createEmail,
-            "name": createName,
-            "password": createPassword
+            email: createEmail,
+            name: createName,
+            password: createPassword,
         };
 
         let settings = {
@@ -18,32 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
             headers: {
                 "Content-Type": "application/json",
                 "x-apikey": APIKEY,
-                "Cache-Control": "no-cache"
+                "Cache-Control": "no-cache",
             },
             body: JSON.stringify(jsondata),
             beforeSend: function () {
                 document.getElementById("create-btn").disabled = true;
                 document.getElementById("createacc-form").reset();
-            }
-        }
+            },
+        };
 
         document.getElementById("email-error-message").innerText = "";
         document.getElementById("success-message").innerText = "";
         fetch("https://fedassg2-4ddb.restdb.io/rest/log-in-info", settings)
-            .then(response => response.json())
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 console.log(data);
                 document.getElementById("create-btn").disabled = false;
                 // Success message shown if account is successfully created.
-                document.getElementById("success-message").innerText = "Account created successfully!";
+                document.getElementById("success-message").innerText =
+                    "Account created successfully!";
             });
     }
 
     // Attach the form submission handler
-    document.getElementById("createacc-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        handleCreateAccount();
-    });
+    document
+        .getElementById("createacc-form")
+        .addEventListener("submit", function (e) {
+            e.preventDefault();
+            handleCreateAccount();
+        });
 
     // Sign in form submission handling code...
     function handleSignIn() {
@@ -54,66 +58,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let jsondata;
 
-        if (EmailFormat){
+        if (EmailFormat) {
             jsondata = {
-                "email": signInInput,
-                "password": signInPassword
+                email: signInInput,
+                password: signInPassword,
             };
         } else {
             jsondata = {
-                "name": signInInput,
-                "password": signInPassword
-            }
+                name: signInInput,
+                password: signInPassword,
+            };
         }
 
         let settings = {
-            method: "GET", 
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "x-apikey": APIKEY,
-                "Cache-Control": "no-cache"
-            }
+                "Cache-Control": "no-cache",
+            },
         };
 
         document.getElementById("invalid-message").innerText = "";
-        fetch(`https://fedassg2-4ddb.restdb.io/rest/log-in-info?q=${JSON.stringify(jsondata)}`, settings)
-            .then(response => response.json())
-            .then(data => {
+        fetch(
+            `https://fedassg2-4ddb.restdb.io/rest/log-in-info?q=${JSON.stringify(
+                jsondata
+            )}`,
+            settings
+        )
+            .then((response) => response.json())
+            .then((data) => {
                 console.log(data);
-    
+
                 // Check if any matching entries in the database were found
                 if (data.length > 0) {
                     // Successful sign-in, display update message
                     console.log("Sign-in successful!");
 
-                    let username = data[0].name; 
+                    let username = data[0].name;
 
                     // Display personalized welcome message
-                    document.getElementById("welcome-message").innerText = `Welcome, ${username}!`;
+                    document.getElementById(
+                        "welcome-message"
+                    ).innerText = `Welcome, ${username}!`;
 
                     document.getElementById("signin-form").reset();
 
                     //Redirect to games.html
-                    setTimeout(function() {
-                    location.href = "games.html";
-                }, 2000);
+                    setTimeout(function () {
+                        location.href = "games.html";
+                    }, 2000);
                 } else {
                     // No matching entries, show error message
-                    document.getElementById("invalid-message").innerText = "Invalid username or password.";
+                    document.getElementById("invalid-message").innerText =
+                        "Invalid username or password.";
                     console.error("Invalid username or password.");
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error("Error during sign-in:", error);
             });
     }
-    
-    document.getElementById("signin-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        handleSignIn();
-    });
+
+    document
+        .getElementById("signin-form")
+        .addEventListener("submit", function (e) {
+            e.preventDefault();
+            handleSignIn();
+        });
 });
 
+let triviaTopic = "general-knowledge";
+const topicRadio = document.getElementById("topic-radio");
+
+topicRadio.addEventListener("change", updateTopic);
+
+function updateTopic(event) {
+    console.log(event.target.value);
+}
 
 //In games.html page, if Start button is pressed, users get redirected to the trivia.html page
 document.getElementById("start-trivia-button").onclick = function () {
