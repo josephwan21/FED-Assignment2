@@ -7,13 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let createName = document.getElementById("create-username").value;
         let createPassword = document.getElementById("create-password").value;
 
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; //Email data validation so that user doesn't input anything else other than an actual email.
-        
-        if (!emailRegex.test(createEmail)){
-            document.getElementById("email-error-message").innerText = "Enter a valid email address.";
-            return;
-        }
-
         let jsondata = {
             "email": createEmail,
             "name": createName,
