@@ -43,8 +43,10 @@
                         </div>
                         <button type="submit" id="signinbtn" class="btn btn-primary">Sign In</button>
                     </form>
-                    <div id="welcome-message"></div>
-                    <div id="invalid-message"></div>
+                    <div id="welcome-message" class="alert alert-info" role="alert" style="display:none;"></div>
+                    <div id="invalid-message" class="alert alert-danger" role="alert" style="display: none;">
+                        Invalid username or password.
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 mx-5 mb-3">       
@@ -61,12 +63,16 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password:</label>
-                                <input type="password" class="form-control form-control-sm small-input" id="create-password" name="password" autocomplete="new-password" required>
+                                <input type="password" class="form-control form-control-sm small-input" id="create-password" name="password" required>
                             </div>
                             <button type="submit" id="create-btn" class="btn btn-primary">Create</button>
                         </form>
-                        <div id="success-message"></div>
-                        <div id="error-message"></div>
+                        <div id="success-message" class="alert alert-success mt-3" role="alert" style="display:none;">
+                            Account created successfully! You can now sign in.
+                        </div>
+                        <div id="error-message" class="alert alert-danger mt-3" role="alert" style="display:none;">
+                            Oops! Something went wrong. Please try again later.
+                        </div>    
                         <div id="email-error-message"></div>
                     </div>
                 </div>

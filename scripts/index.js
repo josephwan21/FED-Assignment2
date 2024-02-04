@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         };
 
-        document.getElementById("email-error-message").innerText = "";
-        document.getElementById("success-message").innerText = "";
+        document.getElementById("email-error-message").style.display = "none";
+        document.getElementById("success-message").style.display = "none";
         fetch("https://fedassg2-4ddb.restdb.io/rest/log-in-info", settings)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
                 document.getElementById("create-btn").disabled = false;
                 // Success message shown if account is successfully created.
-                document.getElementById("success-message").innerText =
-                    "Account created successfully!";
+                document.getElementById("success-message").style.display =
+                    "block";
             });
     }
 
@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .addEventListener("submit", function (e) {
             e.preventDefault();
             handleCreateAccount();
-            console.log("WOrking");
         });
 
     // Sign in form submission handling code...
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         };
 
-        document.getElementById("invalid-message").innerText = "";
+        document.getElementById("invalid-message").style.display = "none";
         fetch(
             `https://fedassg2-4ddb.restdb.io/rest/log-in-info?q=${JSON.stringify(
                 jsondata
@@ -101,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     let username = data[0].name;
 
                     // Display personalized welcome message
+                    document.getElementById("welcome-message").style.display = "block";
                     document.getElementById(
                         "welcome-message"
                     ).innerText = `Welcome, ${username}!`;
@@ -113,8 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }, 2000);
                 } else {
                     // No matching entries, show error message
-                    document.getElementById("invalid-message").innerText =
-                        "Invalid username or password.";
+                    document.getElementById("invalid-message").style.display = "block";
                     console.error("Invalid username or password.");
                 }
             })
