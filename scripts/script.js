@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Fade-in
     document.body.style.opacity = 1;
+
     const APIKEY = "65bde72ec029b8514466ce5b";
 
     // Function to handle create account form submission
@@ -129,12 +131,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let triviaTopic = "general-knowledge";
-const topicRadio = document.getElementById("topic-radio");
+const topicRadio = document.getElementById("category-radio");
 
 topicRadio.addEventListener("change", updateTopic);
 
 function updateTopic(event) {
     console.log(event.target.value);
+    document
+        .querySelector(".animation-visible")
+        .classList.remove("animation-visible");
+    document
+        .getElementById(event.target.value + "-animation")
+        .classList.add("animation-visible");
 }
 
 //In games.html page, if Start button is pressed, users get redirected to the trivia.html page

@@ -216,9 +216,9 @@
                     <p>Level up to unlock more categories and difficulties!</p>
                 </section>
             </div>
-            <fieldset id="topic-radio" class="row gy-5 mb-5">
-                <section class="col">
-                    <h5>Topic</h5>
+            <fieldset id="category-radio" class="row gy-5 mb-5">
+                <section class="categories col">
+                    <h5>Category</h5>
                     <input
                         type="radio"
                         class="btn-check"
@@ -240,6 +240,7 @@
                         id="category-option2"
                         autocomplete="off"
                         value="computers"
+                        disabled
                     />
                     <label class="btn" for="category-option2">Computers</label>
 
@@ -283,7 +284,6 @@
                         id="category-option6"
                         autocomplete="off"
                         value="video-games"
-                        disabled
                     />
                     <label class="btn" for="category-option6"
                         >Video Games</label
@@ -296,7 +296,6 @@
                         id="category-option7"
                         autocomplete="off"
                         value="vehicles"
-                        disabled
                     />
                     <label class="btn" for="category-option7">Vehicles</label>
 
@@ -322,9 +321,19 @@
                     ></dotlottie-player>
                     <dotlottie-player
                         id="general-knowledge-animation"
+                        class="animation-visible"
                         src="lottiefiles/graduation-hat-animation.json"
                         background="transparent"
                         speed="1"
+                        style="width: 300px; height: 300px"
+                        loop
+                        autoplay
+                    ></dotlottie-player>
+                    <dotlottie-player
+                        id="history-animation"
+                        src="https://lottie.host/24e01838-20d9-474a-87aa-b36549697072/xJQHSgVp71.json"
+                        background="transparent"
+                        speed="0.5"
                         style="width: 300px; height: 300px"
                         loop
                         autoplay
