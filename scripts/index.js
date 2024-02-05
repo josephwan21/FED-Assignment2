@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
             email: createEmail,
             name: createName,
             password: createPassword,
+            xp: 0,
+            level: 0,
+            trophies: 0,
         };
 
         let settings = {
@@ -32,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("email-error-message").style.display = "none";
         document.getElementById("success-message").style.display = "none";
-        fetch("https://fedassg2-4ddb.restdb.io/rest/log-in-info", settings)
+        fetch("https://fedassg2-4ddb.restdb.io/rest/accounts", settings)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -83,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("invalid-message").style.display = "none";
         fetch(
-            `https://fedassg2-4ddb.restdb.io/rest/log-in-info?q=${JSON.stringify(
+            `https://fedassg2-4ddb.restdb.io/rest/accounts?q=${JSON.stringify(
                 jsondata
             )}`,
             settings
