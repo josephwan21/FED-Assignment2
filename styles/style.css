@@ -60,6 +60,10 @@ body {
     padding: 3px;
 }
 
+.heart-image{
+    width:25px;
+}
+
 .transparent-rectangle {
     background-color: rgba(13, 202, 240, 0.4);
     border-radius: 10px;
