@@ -7,12 +7,17 @@ body {
     transition: opacity 0.75s;
 }
 
-body, html {
+html{
+    background: linear-gradient(180deg, rgb(13, 202, 240),palegreen);
+    height: 100%;
+}
+
+body {
     /* background-color: #ffd8a8; */
     background-color: white;
     font-family:'Lilita One', sans-serif;
-    background: linear-gradient(to bottom, rgb(13, 202, 240),palegreen);
-    height: 100%;
+    background: linear-gradient(180deg, rgb(13, 202, 240),palegreen);
+    min-height: 100%;
 }
 
 /* Login */
