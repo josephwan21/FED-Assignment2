@@ -33,11 +33,11 @@ body {
     margin-bottom: -165px;
 }
 
-#welcome-message{
+#welcome-message {
     margin-top: -30px;
 }
 
-#invalid-message{
+#invalid-message {
     margin-top: -8px;
 }
 
@@ -54,7 +54,7 @@ body {
     border-radius: 10px;
     width: 275px;
     height: 330px;
-    box-shadow: inset 0 0 10px rgba(0,0,0, 0.5);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .container-createacc {
@@ -62,7 +62,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     width: 275px;
-    box-shadow: inset 0 0 10px rgba(0,0,0, 0.5);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #category-name {
@@ -127,4 +127,9 @@ form dotlottie-player {
 .animation-visible {
     margin: auto;
     display: block;
+}
+
+.btn-check[disabled] + .btn {
+    cursor: not-allowed;
+    pointer-events: all;
 }
