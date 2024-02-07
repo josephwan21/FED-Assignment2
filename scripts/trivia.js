@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let nextButton = document.querySelector(".next-btn");
     nextButton.disabled = true; // prevent user from clicking next before questions are fetched
 
+    const APIKEY = "65c246cb514d3948545fda29";   
+    const userData = JSON.parse(sessionStorage.getItem('user')); 
     // Fade-in
     document.body.style.opacity = 1;
 
@@ -171,9 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     nextButton.disabled = true;
                     console.log(score);
-                    console.log(document.getElementById("exampleModal"));
+                    console.log(document.getElementById("triviaModal"));
                     let modal = bootstrap.Modal.getOrCreateInstance(
-                        document.getElementById("exampleModal")
+                        document.getElementById("triviaModal")
                     );
                     document.querySelector(
                         ".modal-body"
@@ -185,7 +187,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     ))}<br />Score: ${score}/10<br />+${
                         2 * score
                     } Trophies<br />+${2 * score} XP`;
+                    
+                    updateXpAndTrophiesInDatabase(userData.name, userData.email, userData.level, 2 * score, 2 * score); // Update XP and trophies in the database
                     modal.show();
+                    
                     document
                         .getElementById("ok")
                         .addEventListener("click", function () {
@@ -194,7 +199,69 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+    
+    // Function to update XP and trophies in the database
+    function updateXpAndTrophiesInDatabase(name, email, level, xpIncrement, trophiesIncrement) {
+        fetch(`https://fedassg2-4ddb.restdb.io/rest/accounts?q={"name": "${name}", "email": "${email}"}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-apikey': APIKEY,
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    let userID = data[0]._id;
+
+                    let currentXP = data[0].xp;
+                    let currentTrophies = data[0].trophies;
+
+                    let updatedXP = currentXP + xpIncrement;
+                    let updatedTrophies = currentTrophies + trophiesIncrement;
+
+                    // Update XP and trophies in the database
+                    fetch(`https://fedassg2-4ddb.restdb.io/rest/accounts/${userID}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-apikey': APIKEY,
+                        },
+                        body: JSON.stringify({
+                            xp: updatedXP,
+                            trophies: updatedTrophies,
+                            level: level
+                        }),
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+
+                            const updatedUserData = {
+                                name: name,
+                                email: email,
+                                level: level,
+                                xp: updatedXP,
+                                trophies: updatedTrophies,
+                            };
+    
+                            sessionStorage.setItem('user', JSON.stringify(updatedUserData));
+                        })
+                        .catch(error => {
+                            console.error('Error updating XP and trophies:', error);
+                        });
+                } else {
+                    console.error('User not found for XP and trophies update');
+                }
+            })
+            .catch(error => {
+                console.error('Error finding user for XP and trophies update:', error);
+            });
+    }
+
 });
+
+
 
 // window.addEventListener("beforeunload", function (e) {
 //     // Cancel the event
