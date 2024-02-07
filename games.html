@@ -21,7 +21,44 @@
         <title>Games</title>
     </head>
     <body>
-        <!-- Modal -->
+        <!-- Profile Modal -->
+        <div 
+            class="modal fade"
+            id="profileModal"
+            tabindex="-1"
+            aria-labelledby="profileModalLabel"
+            aria-hidden="true"
+        >
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="profileModalLabel">
+                        Profile
+                    </h1>
+                    <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="profile-name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="profile-name" value="Wong Jun Jie">
+                    </div>
+                    <div class="mb-3">
+                        <label for="profile-email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="profile-email" value="wongjunjie@gmail.com">
+                    </div>
+                    <p><strong>Level:</strong> <span id="profile-level">11</span></p>
+                    <p><strong>Trophies:</strong> <span id="profile-trophies">35</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Leaderboard Modal -->
         <div
             class="modal fade"
             id="leaderboardModal"
@@ -109,13 +146,16 @@
                                 >
                             </li> -->
                             <!-- Button trigger modal -->
-                            <button
+                            <li>
+                                <button
                                 class="nav-link active leaderboard-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#leaderboardModal"
                             >
                                 Leaderboard
                             </button>
+                            </li>
+                            
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="leaderboard.html"
                                     >Leaderboard</a
@@ -177,9 +217,14 @@
                                 </a> -->
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="#"
-                                            >View / Edit Profile</a
+                                        <button
+                                        type="button"
+                                        class="nav-link btn btn-info"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#profileModal"
                                         >
+                                        View / Edit Profile
+                                    </button>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#"
