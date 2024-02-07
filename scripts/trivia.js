@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.innerHTML = "NEXT";
     nextButton.disabled = true; // prevent user from clicking next before questions are fetched
 
+    const APIKEY = "65c246cb514d3948545fda29";
+    const userData = JSON.parse(sessionStorage.getItem("user"));
     // Fade-in
     document.body.style.opacity = 1;
 
@@ -87,53 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
             nextButton.disabled = false;
             console.log(data);
 
-            // load first question
-            // document.getElementById("question-number").innerHTML = index;
-            // document.getElementById("question").innerHTML =
-            //     data.results[index - 1].question;
-            // console.log(data.results[index - 1]);
-
-            // let options = [];
-            // if (data.results[index - 1].type === "multiple") {
-            //     options = data.results[index - 1].incorrect_answers.slice(); // make a copy of the incorrect answers array from the question object
-            //     options.push(data.results[index - 1].correct_answer);
-
-            //     for (let i = options.length - 1; i > 0; i--) {
-            //         const j = Math.floor(Math.random() * (i + 1));
-            //         [options[i], options[j]] = [options[j], options[i]];
-            //     }
-            // } else if (data.results[index - 1].type === "boolean") {
-            //     options.push("True");
-            //     options.push("False");
-            // }
-
-            // console.log(document.getElementsByClassName("multiple"));
-            // for (let option of document.getElementsByClassName("multiple")) {
-            //     option.style.display = "none";
-            // }
-
-            // for (
-            //     let i = 0;
-            //     i <
-            //     document.getElementsByClassName(data.results[index - 1].type)
-            //         .length;
-            //     i++
-            // ) {
-            //     document.getElementsByClassName(data.results[index - 1].type)[
-            //         i
-            //     ].innerHTML = `<input
-            //     type="radio"
-            //     name="choice"
-            //     value="${options[i]}"
-            // />
-            // &emsp;${options[i]}`;
-            //     document.getElementsByClassName(data.results[index - 1].type)[
-            //         i
-            //     ].style.display = "block";
-            // }
-            // console.log(options);
-
-            // index++;
             loadQuestion(data);
 
             nextButton.addEventListener("click", function () {
@@ -190,6 +145,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     ))}<br />Score: ${score}/10<br />+${
                         2 * score
                     } Trophies<br />+${2 * score} XP`;
+
+                    updateXpAndTrophiesInDatabase(
+                        userData.name,
+                        userData.email,
+                        userData.level,
+                        2 * score,
+                        2 * score
+                    ); // Update XP and trophies in the database
                     modal.show();
                     window.removeEventListener(
                         "beforeunload",
@@ -203,6 +166,86 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+    // Function to update XP and trophies in the database
+    function updateXpAndTrophiesInDatabase(
+        name,
+        email,
+        level,
+        xpIncrement,
+        trophiesIncrement
+    ) {
+        fetch(
+            `https://fedassg2-4ddb.restdb.io/rest/accounts?q={"name": "${name}", "email": "${email}"}`,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-apikey": APIKEY,
+                },
+            }
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length > 0) {
+                    let userID = data[0]._id;
+
+                    let currentXP = data[0].xp;
+                    let currentTrophies = data[0].trophies;
+
+                    let updatedXP = currentXP + xpIncrement;
+                    let updatedTrophies = currentTrophies + trophiesIncrement;
+
+                    // Update XP and trophies in the database
+                    fetch(
+                        `https://fedassg2-4ddb.restdb.io/rest/accounts/${userID}`,
+                        {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "x-apikey": APIKEY,
+                            },
+                            body: JSON.stringify({
+                                xp: updatedXP,
+                                trophies: updatedTrophies,
+                                level: level,
+                            }),
+                        }
+                    )
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log(data);
+
+                            const updatedUserData = {
+                                name: name,
+                                email: email,
+                                level: level,
+                                xp: updatedXP,
+                                trophies: updatedTrophies,
+                            };
+
+                            sessionStorage.setItem(
+                                "user",
+                                JSON.stringify(updatedUserData)
+                            );
+                        })
+                        .catch((error) => {
+                            console.error(
+                                "Error updating XP and trophies:",
+                                error
+                            );
+                        });
+                } else {
+                    console.error("User not found for XP and trophies update");
+                }
+            })
+            .catch((error) => {
+                console.error(
+                    "Error finding user for XP and trophies update:",
+                    error
+                );
+            });
+    }
 });
 
 let alertBeforeUnloading = function (event) {
