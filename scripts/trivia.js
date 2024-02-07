@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let nextButton = document.querySelector(".next-btn");
+    let nextButton = document.querySelector("#next-qn-button");
+
+    nextButton.innerHTML = "NEXT";
     nextButton.disabled = true; // prevent user from clicking next before questions are fetched
 
     // Fade-in
@@ -82,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     )
         .then((response) => response.json())
         .then((data) => {
-            nextButton.disabled = true;
+            nextButton.disabled = false;
             console.log(data);
 
             // load first question
@@ -159,6 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         'input[name="choice"]:checked'
                     ).checked = false;
                     index++;
+                    if (index === amount) {
+                        nextButton.innerHTML = "FINISH";
+                    }
                     // load subsequent questions on Next pressed
                     // console.log(data.results[index - 1]);
                     // console.log(index);
@@ -171,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     nextButton.disabled = true;
                     console.log(score);
-                    console.log(document.getElementById("exampleModal"));
+                    console.log(document.getElementById("triviaModal"));
                     let modal = bootstrap.Modal.getOrCreateInstance(
-                        document.getElementById("exampleModal")
+                        document.getElementById("triviaModal")
                     );
                     document.querySelector(
                         ".modal-body"
@@ -186,6 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         2 * score
                     } Trophies<br />+${2 * score} XP`;
                     modal.show();
+                    window.removeEventListener(
+                        "beforeunload",
+                        alertBeforeUnloading
+                    );
                     document
                         .getElementById("ok")
                         .addEventListener("click", function () {
@@ -196,9 +205,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-// window.addEventListener("beforeunload", function (e) {
-//     // Cancel the event
-//     e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-//     // Chrome requires returnValue to be set
-//     e.returnValue = "";
-// });
+let alertBeforeUnloading = function (event) {
+    // Cancel the event
+    event.preventDefault();
+    event.returnValue = "";
+};
+
+window.addEventListener("beforeunload", alertBeforeUnloading);

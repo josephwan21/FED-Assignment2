@@ -80,6 +80,14 @@
                 </div>
             </div>
         </div>
+        <button
+            class="nav-link active leaderboard-button"
+            data-bs-toggle="modal"
+            data-bs-target="#leaderboardModal"
+            style="position: absolute"
+        >
+            Leaderboard
+        </button>
         <header>
             <nav class="navbar navbar-expand-sm fixed-top">
                 <div class="container-fluid">
@@ -109,13 +117,13 @@
                                 >
                             </li> -->
                             <!-- Button trigger modal -->
-                            <button
+                            <!-- <button
                                 class="nav-link active leaderboard-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#leaderboardModal"
                             >
                                 Leaderboard
-                            </button>
+                            </button> -->
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="leaderboard.html"
                                     >Leaderboard</a
@@ -144,7 +152,7 @@
                                             class="progress-bar progress-bar-striped progress-bar-animated"
                                             style="width: 50%"
                                         >
-                                            50/100
+                                            1
                                         </div>
                                     </div>
                                 </a>
@@ -329,7 +337,7 @@
                     <dotlottie-player
                         id="general-knowledge-animation"
                         class="animation-visible"
-                        src="lottiefiles/graduation-hat-animation.json"
+                        src="https://lottie.host/2944bcbd-dea7-4f85-85ee-a560bea1d8d3/VFWGDR5RxA.json"
                         background="transparent"
                         speed="1"
                         style="width: 300px; height: 300px"
@@ -421,4 +429,8 @@
 
         <script src="scripts/games.js"></script>
     </body>
+    <footer class="py-5">
+        More categories coming soon<br /><br />This website was made possible
+        with RestDB, Bootstrap and the Open Trivia Database API.
+    </footer>
 </html>

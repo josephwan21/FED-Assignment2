@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     leaderboardBody.innerHTML = "";
     //Function to update leaderboard modal content
     function updateLeaderboardModal(data) {
+        leaderboardBody.innerHTML = "";
         //Iterate through the fetched data and create new rows
         data.forEach((user, index) => {
             leaderboardBody.innerHTML += `

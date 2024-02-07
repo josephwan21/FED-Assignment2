@@ -1,18 +1,14 @@
-/* Website Fade-In */
-
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-    opacity: 0;
-    transition: opacity 0.75s;
-}
-
 html {
     background: linear-gradient(180deg, rgb(13, 202, 240), palegreen);
     height: 100%;
 }
 
 body {
+    max-width: 100%;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 1s; /* page fade in */
+
     /* background-color: #ffd8a8; */
     background-color: white;
     font-family: "Lilita One", sans-serif;
@@ -138,5 +134,9 @@ form dotlottie-player {
 #triviaModal .modal-header {
     text-transform: capitalize;
     /* margin: auto; */
+    text-align: center;
+}
+
+footer {
     text-align: center;
 }
