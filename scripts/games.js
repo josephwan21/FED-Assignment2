@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fade-in
     document.body.style.opacity = 1;
-    const APIKEY = "65bde72ec029b8514466ce5b";
+    const APIKEY = "65c246cb514d3948545fda29";
 
-    let triviaTopic = "general-knowledge";
+    // let triviaTopic = "general-knowledge";
+    let triviaTopic = document.querySelector(
+        'input[name="category-options-base"]:checked'
+    ).value;
+    let triviaDifficulty = document.querySelector(
+        'input[name="difficulty-options-base"]:checked'
+    ).value;
+
     const topicRadio = document.getElementById("category-radio");
     topicRadio.addEventListener("change", updateTopic);
     function updateTopic(event) {
@@ -13,8 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document
             .getElementById(event.target.value + "-animation")
             .classList.add("animation-visible");
+        triviaDifficulty = document.querySelector(
+            'input[name="difficulty-options-base"]:checked'
+        ).value;
+        triviaTopic = document.querySelector(
+            'input[name="category-options-base"]:checked'
+        ).value;
     }
-    
+
     const leaderboardBody = document.getElementById("leaderboard-body");
     //Clear existing rows
     leaderboardBody.innerHTML = "";
@@ -56,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //If Start button is pressed, users get redirected to the trivia.html page to start the trivia quiz
     document.getElementById("start-trivia-button").onclick = function () {
+        sessionStorage.setItem("trivia-topic", triviaTopic);
+        sessionStorage.setItem("trivia-difficulty", triviaDifficulty);
         location.href = "trivia.html";
     };
 });

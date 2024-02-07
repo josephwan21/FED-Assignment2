@@ -7,16 +7,16 @@ body {
     transition: opacity 0.75s;
 }
 
-html{
-    background: linear-gradient(180deg, rgb(13, 202, 240),palegreen);
+html {
+    background: linear-gradient(180deg, rgb(13, 202, 240), palegreen);
     height: 100%;
 }
 
 body {
     /* background-color: #ffd8a8; */
     background-color: white;
-    font-family:'Lilita One', sans-serif;
-    background: linear-gradient(180deg, rgb(13, 202, 240),palegreen);
+    font-family: "Lilita One", sans-serif;
+    background: linear-gradient(180deg, rgb(13, 202, 240), palegreen);
     min-height: 100%;
 }
 
@@ -132,4 +132,11 @@ form dotlottie-player {
 .btn-check[disabled] + .btn {
     cursor: not-allowed;
     pointer-events: all;
+}
+
+.modal-body,
+.modal-header {
+    text-transform: capitalize;
+    margin: auto;
+    text-align: center;
 }

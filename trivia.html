@@ -10,55 +10,129 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+            rel="stylesheet"
+        />
         <link href="styles/style.css" rel="stylesheet" type="text/css" />
         <title>Trivia</title>
     </head>
     <body>
-        <article class="container-md text-center">
-            <section class="">
-                <h1>Trivia</h1>
-            </section>
-        <h2 id="category-name">Topic Name</h2>
-        
-        <div class="container">
-            <div class="transparent-rectangle p-2" style="height: 415px;">
-                <div class="question-block text-start">
-                    <h2>Question</h2>
-                    <h4>Question No.</h4>
-                    <div id="multiple-choices" class="mt-4">
-                        <div class="list-group mt-1">
-                            <label class="list-group-item">
-                                <input type="radio" name="choice" value="option1">
-                                Option 1
-                            </label>
-    
-                            <label class="list-group-item mt-1">
-                                <input type="radio" name="choice" value="option2">
-                                Option 2
-                            </label>
-    
-                            <label class="list-group-item mt-1">
-                                <input type="radio" name="choice" value="option3">
-                                Option 3
-                            </label>
-
-                            <label class="list-group-item mt-1">
-                                <input type="radio" name="choice" value="option4">
-                                Option 4
-                            </label>
-                        </div>
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            Trivia Complete!
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
                     </div>
-                    <div class="next-btn text-end">
-                        <button type="button" class="btn btn-info mt-5" id="next-qn-button">
-                            Next
-                        </button>
+                    <div class="modal-body">
+                        Category<br />Score: .../10<br />+... Trophies<br />+...
+                        XP
                     </div>
+                    <!-- <div class="modal-footer"> -->
+                    <!-- <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button> -->
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="ok"
+                        data-bs-dismiss="modal"
+                    >
+                        OK
+                    </button>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
+
+        <article class="container-md text-center">
+            <section class="">
+                <h1 class="my-4">Trivia</h1>
+            </section>
+            <h2 id="category-name">Topic Name</h2>
+
+            <div class="container">
+                <div class="transparent-rectangle p-2" style="height: 415px">
+                    <div class="question-block text-start">
+                        <h4 id="question-number">1</h4>
+                        <h2 id="question">loading...</h2>
+
+                        <div id="multiple-choices" class="mt-4">
+                            <div class="list-group mt-1">
+                                <label
+                                    class="list-group-item mt-1 multiple boolean"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="choice"
+                                        value="option1"
+                                    />
+                                    Option 1
+                                </label>
+
+                                <label class="list-group-item mt-1 multiple">
+                                    <input
+                                        type="radio"
+                                        name="choice"
+                                        value="option2"
+                                    />
+                                    Option 2
+                                </label>
+
+                                <label class="list-group-item mt-1 multiple">
+                                    <input
+                                        type="radio"
+                                        name="choice"
+                                        value="option3"
+                                    />
+                                    Option 3
+                                </label>
+
+                                <label
+                                    class="list-group-item mt-1 multiple boolean"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="choice"
+                                        value="option4"
+                                    />
+                                    Option 4
+                                </label>
+                            </div>
+                        </div>
+                        <div class="next-btn text-end">
+                            <button
+                                type="button"
+                                class="btn btn-info mt-5"
+                                id="next-qn-button"
+                            >
+                                NEXT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </article>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
