@@ -8,7 +8,7 @@ Design Process
 
 <h3><strong> User Audience Intent & Purpose</h3></strong>
 
-- The user audience's intent is to engage in trivia questions, gain experience points, trophies and level through the Trivia Quest website.
+- The user audience's intent is to engage in trivia questions of the category they choose, gain experience points, trophies and level through the Trivia Quest website.
 - Engage user to keep on using the website since it has gamified features such as XP, trophies and level invoking a snese of completion or continuation.
 
 
@@ -30,10 +30,11 @@ What the website caters for
 
 Features
 --------------------
+- Gamified features such as having a level which can be increased through doing the quizzes and gaining experience points from them.
 
 Technologies Used
 --------------------
-- HTML (HyperText Markip Language)
+- HTML (HyperText Markup Language)
 - CSS (Cascading Style Sheets)
 - JS (JavaScript)
 
