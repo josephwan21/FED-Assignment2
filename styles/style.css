@@ -84,17 +84,17 @@ body {
 }
 
 /* Games */
-.leaderboard-button,
+/* .leaderboard-button,
 .leaderboard-button:hover,
 .leaderboard-button:active,
-.leaderboard-button:visited {
-    /* background-color: #f8f9fa; */
-    background-color: #0dcaf0;
+.leaderboard-button:visited { */
+/* background-color: #f8f9fa; */
+/* background-color: #0dcaf0; */
 
-    --bs-btn-active-color: black;
-    /* --bs-btn-active-bg: #f8f9fa; */
-    --bs-btn-active-bg: #0dcaf0;
-}
+/* --bs-btn-active-color: black; */
+/* --bs-btn-active-bg: #f8f9fa; */
+/* --bs-btn-active-bg: #0dcaf0; */
+/* } */
 
 .btn-check:checked + .btn,
 .btn-active,
@@ -134,9 +134,9 @@ form dotlottie-player {
     pointer-events: all;
 }
 
-.modal-body,
-.modal-header {
+#triviaModal .modal-body,
+#triviaModal .modal-header {
     text-transform: capitalize;
-    margin: auto;
+    /* margin: auto; */
     text-align: center;
 }

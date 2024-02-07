@@ -65,7 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error fetching leaderboard data:", error);
             });
     }
-    fetchLeaderboardData(APIKEY); // Fetch and update leaderboard data when the page loads
+    // fetchLeaderboardData(APIKEY); // Fetch and update leaderboard data when the page loads
+
+    document
+        .querySelector(".leaderboard-button")
+        .addEventListener("click", function () {
+            fetchLeaderboardData(APIKEY);
+        });
 
     //If Start button is pressed, users get redirected to the trivia.html page to start the trivia quiz
     document.getElementById("start-trivia-button").onclick = function () {
