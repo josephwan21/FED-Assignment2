@@ -72,6 +72,77 @@ document.addEventListener("DOMContentLoaded", function () {
         .addEventListener("click", function () {
             fetchLeaderboardData(APIKEY);
         });
+    
+    //Retrieve user (log-in) information from sessionStorage
+    const userData = sessionStorage.getItem('user');
+
+    //Check if user data exists
+    if (userData) {
+        const user = JSON.parse(userData);
+
+        // Update profile modal with user data
+        document.getElementById('profile-name').value = user.name;
+        document.getElementById('profile-email').value = user.email;
+        document.getElementById('profile-level').innerText = user.level;
+        document.getElementById('profile-trophies').innerText = user.trophies;
+        //Attach an input event listener to each text box
+        document.getElementById("profile-name").addEventListener("input", function () {
+            updateProfileInDatabase(user.name, user.email, this.value, document.getElementById("profile-email").value);
+        });
+
+        document.getElementById("profile-email").addEventListener("input", function () {
+            updateProfileInDatabase(user.name, user.email, document.getElementById("profile-name").value, this.value);
+        });
+    }
+
+    let updateTimeout; // Variable to store the timeout for updating user credentials
+    //Had to do an asynchronous function to ensure when the user changes his name/email, the database finds the previous username/email rather than the one that was recently changed.
+    async function updateProfileInDatabase(name, email, newName, newEmail) {
+        // Clear any existing timeout
+        clearTimeout(updateTimeout);
+
+        // Set a new timeout
+        updateTimeout = setTimeout(async () => {
+            try {
+                const response = await fetch(`https://fedassg2-4ddb.restdb.io/rest/accounts?q={"name": "${name}", "email": "${email}"}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-apikey': APIKEY,
+                    },
+                });
+                const data = await response.json();
+
+                // Find the exact user match based on name and email
+                const matchingUser = data.find(user => user.name === name && user.email === email);
+
+                if (matchingUser) {
+                    let userID = matchingUser._id; //Check if there's a matching user 
+
+                    // Update the user's profile in the database
+                    const updateResponse = await fetch(`https://fedassg2-4ddb.restdb.io/rest/accounts/${userID}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-apikey': APIKEY,
+                        },
+                        body: JSON.stringify({
+                            name: newName,
+                            email: newEmail
+                        }),
+                    });
+
+                    const updateData = await updateResponse.json();
+                    console.log(updateData);
+                } else {
+                    console.error('User not found for update');
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+            }
+        }, 7500); // 7500 milliseconds delay before changing the name & email field of the selected user to avoid going past the rate limit of the database
+    }
+
 
     //If Start button is pressed, users get redirected to the trivia.html page to start the trivia quiz
     document.getElementById("start-trivia-button").onclick = function () {
