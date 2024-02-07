@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fade-in
     document.body.style.opacity = 1;
 
-    const APIKEY = "65bde72ec029b8514466ce5b";
+    const APIKEY = "65c246cb514d3948545fda29";
 
     // Function to handle create account form submission
     function handleCreateAccount() {
@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("Sign-in successful!");
 
                     let username = data[0].name;
+
+                    sessionStorage.setItem('user', JSON.stringify(data[0]));
 
                     // Display personalized welcome message
                     document.getElementById("welcome-message").style.display = "block";
