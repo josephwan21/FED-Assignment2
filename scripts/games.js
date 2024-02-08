@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         14: 81880,
     };
 
-    // let triviaTopic = "general-knowledge";
     let triviaTopic = document.querySelector(
         'input[name="category-options-base"]:checked'
     ).value;
@@ -36,33 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
         document
             .getElementById(event.target.value + "-animation")
             .classList.add("animation-visible");
-        triviaDifficulty = document.querySelector(
-            'input[name="difficulty-options-base"]:checked'
-        ).value;
+
         triviaTopic = document.querySelector(
             'input[name="category-options-base"]:checked'
         ).value;
     }
 
-    // function fetchLevel(key) {
-    //     let levelBar = document.getElementById("level-bar");
-    //     fetch("https://fedassg2-4ddb.restdb.io/rest/accounts", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "x-apikey": key,
-    //             "Cache-Control": "no-cache",
-    //         },
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             levelBar.ariaValueNow = data.;
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error fetching level data:", error);
-    //         });
-    // }
-    // fetchLevel(APIKEY);
+    const difficultyRadio = document.getElementById("difficulty-radio");
+    difficultyRadio.addEventListener("change", updateDifficulty);
+    function updateDifficulty(event) {
+        triviaDifficulty = document.querySelector(
+            'input[name="difficulty-options-base"]:checked'
+        ).value;
+    }
+
     const leaderboardBody = document.getElementById("leaderboard-body");
     //Clear existing rows
     // leaderboardBody.innerHTML = "";
@@ -100,9 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 console.error("Error fetching leaderboard data:", error);
-                document.getElementById('leaderboard-error-message').style.display = "block";
-                document.getElementById('load-leaderboard').style.display = "none";
-
+                document.getElementById(
+                    "leaderboard-error-message"
+                ).style.display = "block";
+                document.getElementById("load-leaderboard").style.display =
+                    "none";
             });
     }
     // fetchLeaderboardData(APIKEY); // Fetch and update leaderboard data when the page loads
@@ -120,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (userData) {
         const user = JSON.parse(userData);
 
+        // Check user XP and update level if necessary
         if (user.xp < 20) user.level = 1;
         else if (user.xp < 60) user.level = 2;
         else if (user.xp < 140) user.level = 3;
@@ -133,6 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
         else if (user.xp < 40920) user.level = 11;
         else if (user.xp < 81880) user.level = 12;
         else user.level = 13;
+
+        for (let level = 2; level <= user.level; level++) {
+            for (let unlocked of document.getElementsByClassName(
+                `level-${level}`
+            )) {
+                unlocked.disabled = false;
+            }
+        }
 
         sessionStorage.setItem("user", JSON.stringify(user));
 
@@ -237,11 +234,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log(updateData);
                 } else {
                     console.error("User not found for update");
-                    document.getElementById('updateacc-error-message').style.display = "block"; //Should there be any errors that occur, a message should pop up.
+                    document.getElementById(
+                        "updateacc-error-message"
+                    ).style.display = "block"; //Should there be any errors that occur, a message should pop up.
                 }
             } catch (error) {
                 console.error("Error updating profile:", error);
-                document.getElementById('updateacc-error-message').style.display = "block";
+                document.getElementById(
+                    "updateacc-error-message"
+                ).style.display = "block";
             }
         }, 7500); // 7500 milliseconds delay before changing the name & email field of the selected user to avoid going past the rate limit of the database
     }
