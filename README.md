@@ -86,7 +86,7 @@ What the website caters for
 
 - Blank Profile Pic from: https://laiacc.com/executive-board-2/blank-profile-picture-973460_1280/
 
-<h3><strong>Animations</h3><strong>
+<h3><strong>Animations</h3></strong>
 
 - Lottie Animations were used from https://lottiefiles.com/
 
