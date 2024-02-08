@@ -3,29 +3,35 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login</title>
-
+        <title>Login</title> <!--Title of the page-->
+        <!--Linked Bootstrap to html-->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <!--Linked Google Font to html-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
             rel="stylesheet"
         />
-
+        <!--Linked stylesheets to html-->
         <link href="styles/style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
-        <header class="container mt-4 login-header shadow">
-            <div class="row align-items-start">
-                <div class="container col-md-5">
-                    <h6>
+        <header class="container mt-4 login-header shadow"> <!--Created login header container-->
+            <div class="row align-items-start"> 
+                <div class="col-md-4 mt-2"> <!--Display item in a column format such that the name and header message are separated-->
+                    <h1>
+                        Trivia Quest <!--Name of Website-->
+                    </h1>
+                </div>
+                <div class="col-md-5 mt-1">
+                    <h6> <!--Header Message-->
                         A place to start your journey in the world of trivia and
                         quizzes. Do you want test your knowledge on certain
                         topics? You have come to the right place.
@@ -34,13 +40,13 @@
             </div>
         </header>
 
-        <section class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-3 mx-5 mb-3">
-                    <div class="container-signin">
-                        <h4 class="text-center">Sign In</h4>
+        <section class="container mt-5"> <!--Sign in & Account Creation Section-->
+            <div class="row justify-content-center"> 
+                <div class="col-md-3 mx-5 mb-3"> <!-- Arrange Sign In & Account Creation containers in columns so that they can be separated apart-->
+                    <div class="container-signin"> <!--Sign In Container-->
+                        <h4 class="text-center">Sign In</h4> 
                         <form id="signin-form">
-                            <div class="mb-3">
+                            <div class="mb-3"> <!--Container that contains the input fields for Sign In-->
                                 <label for="username" class="form-label"
                                     >Username / Email:</label
                                 >
@@ -49,8 +55,8 @@
                                     class="form-control form-control-sm small-input"
                                     id="username"
                                     name="username"
-                                    required
-                                />
+                                    required 
+                                /> <!--Input field set to required to ensure user doesn't log in with an empty field-->
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label"
@@ -77,7 +83,7 @@
                             class="alert alert-info"
                             role="alert"
                             style="display: none"
-                        ></div>
+                        ></div><!--Welcome message which is further done in JavaScript to welcome the actual user's name-->
                         <div
                             id="invalid-message"
                             class="alert alert-danger"
@@ -85,11 +91,19 @@
                             style="display: none"
                         >
                             Invalid username or password.
-                        </div>
+                        </div> <!--Included a message if the respective username or password is not found in the database -->
+                        <div
+                            id="signin-error-message"
+                            class="alert alert-danger"
+                            role="alert"
+                            style="display: none"
+                        >
+                            Oops! Something went wrong. Please try again later.
+                        </div><!--Should there be an error, an error message should appear-->                  
                     </div>
                 </div>
 
-                <div class="col-md-3 mx-5 mb-3">
+                <div class="col-md-3 mx-5 mb-3"> <!--Account Creation Container-->
                     <div class="container-createacc">
                         <h4 class="text-center">Create Account</h4>
                         <form id="createacc-form">
@@ -103,7 +117,7 @@
                                     id="create-email"
                                     name="email"
                                     required
-                                />
+                                /><!--Input validation for email is included to ensure user enters an actual email and is required-->
                             </div>
                             <div class="mb-3">
                                 <label for="username" class="form-label"
@@ -144,16 +158,15 @@
                             style="display: none"
                         >
                             Account created successfully! You can now sign in.
-                        </div>
+                        </div><!--Account creation success message-->
                         <div
-                            id="error-message"
+                            id="acc-error-message"
                             class="alert alert-danger mt-3"
                             role="alert"
                             style="display: none"
                         >
                             Oops! Something went wrong. Please try again later.
-                        </div>
-                        <div id="email-error-message"></div>
+                        </div><!--Should there be an error, an error message should appear-->
                     </div>
                 </div>
             </div>
@@ -163,7 +176,7 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"
-        ></script>
-        <script src="scripts/index.js"></script>
+        ></script><!--Link Bootstrap JS to html-->
+        <script src="scripts/index.js"></script> <!--Link index.js JavaScript to this html-->
     </body>
 </html>
