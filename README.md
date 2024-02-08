@@ -54,7 +54,7 @@ What the website caters for
 
 -   As a user, I would want to find out what the range of topics are that I could choose from.
 
--   As a user, I would also want to find out what my current level is and how much experience points I need to level up.
+-   As a user or avid user of the website, I would also want to find out what my current level is and how much experience points I need to level up.
 
 -   As a mobile user, I would want the website to be responsive and easy to navigate/not messy so I can access parts of the website with ease whenever I am on the go.
 
@@ -82,6 +82,11 @@ What the website caters for
 -   Special thanks to Timothy Chai for his contributions to the main structure of the games.html page, games.js JavaScript code to set the trivia categories and difficulties up, trivia.js JavaScript file for implementing the fetching of questions from Open Trivia Database and for also noting out my mistakes and issues I have with my code. He has also applied lottie animations for each category in the games.html page and the loading of questions in the trivia.html page.
 
 <h3><strong>Media</h3></strong>
+
+- Blank Profile Pic from: https://laiacc.com/executive-board-2/blank-profile-picture-973460_1280/
+
+<h3><strong>Lottie Animations</h3><strong>
+- Lottie Animations were used 
 
 <h3><strong>API</h3></strong>
 
