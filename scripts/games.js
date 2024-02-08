@@ -2,6 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fade-in
     document.body.style.opacity = 1;
     const APIKEY = "65c246cb514d3948545fda29";
+    const xpNeeded = {
+        2: 20,
+        3: 60,
+        4: 140,
+        5: 300,
+        6: 620,
+        7: 1260,
+        8: 2540,
+        9: 5100,
+        10: 10220,
+        11: 20440,
+        12: 40920,
+        13: 81880,
+        14: 81880,
+    };
 
     // let triviaTopic = "general-knowledge";
     let triviaTopic = document.querySelector(
@@ -86,7 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("profile-name").value = user.name;
         document.getElementById("profile-email").value = user.email;
         document.getElementById("profile-level").innerText = user.level;
-        document.getElementById("profile-trophies").innerText = user.trophies;
+        document.getElementById("profile-xp").innerText =
+            user.xp + " / " + xpNeeded[user.level + 1] + " XP";
+        document.getElementById("profile-trophies").innerText =
+            user.trophies + " Trophies";
         //Attach an input event listener to each text box
         document
             .getElementById("profile-name")

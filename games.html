@@ -66,11 +66,15 @@
                             />
                         </div>
                         <p>
-                            <strong>Level:</strong>
+                            <strong>Level</strong>
                             <span id="profile-level">...</span>
                         </p>
                         <p>
-                            <strong>Trophies:</strong>
+                            <strong></strong>
+                            <span id="profile-xp">...</span>
+                        </p>
+                        <p>
+                            <strong></strong>
                             <span id="profile-trophies">...</span>
                         </p>
                     </div>
@@ -141,7 +145,7 @@
         </div>
 
         <header>
-            <nav>
+            <nav class="p-3">
                 <div
                     class="progress"
                     role="progressbar"
@@ -159,7 +163,7 @@
                 </div>
                 <div>
                     <button
-                        class="nav-link active leaderboard-button"
+                        class="nav-link active leaderboard-button mx-3"
                         data-bs-toggle="modal"
                         data-bs-target="#leaderboardModal"
                     >
@@ -216,11 +220,7 @@
                                     View / Edit Profile
                                 </button>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="#"
-                                    >Another action</a
-                                >
-                            </li>
+
                             <li><hr class="dropdown-divider" /></li>
                             <li>
                                 <a
