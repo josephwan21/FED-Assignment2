@@ -33,22 +33,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let triviaTopic = sessionStorage.getItem("trivia-topic");
     let triviaDifficulty = sessionStorage.getItem("trivia-difficulty");
     let difficultyMultiplier = multipliers[triviaDifficulty];
+
+    // display trivia category and name
     document.getElementById("category-name").innerHTML =
         triviaTopic.replaceAll("-", " ") + " - " + triviaDifficulty;
     document.getElementById("category-name").style.textTransform = "capitalize";
-    let index = 1;
+    let index = 1; // starting question number
 
     function loadQuestion(data) {
-        document.getElementById("question-number").innerHTML = index;
+        document.getElementById("question-number").innerHTML = index; // display question number
         document.getElementById("question").innerHTML =
-            data.results[index - 1].question;
-        console.log(data.results[index - 1]);
+            data.results[index - 1].question; // display question
 
+        // set options of question
         let options = [];
         if (data.results[index - 1].type === "multiple") {
             options = data.results[index - 1].incorrect_answers.slice(); // make a copy of the incorrect answers array from the question object
-            options.push(data.results[index - 1].correct_answer);
+            options.push(data.results[index - 1].correct_answer); // add correct answer to options
 
+            // randomise options
             for (let i = options.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [options[i], options[j]] = [options[j], options[i]];
@@ -58,11 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
             options.push("False");
         }
 
-        console.log(document.getElementsByClassName("multiple"));
         for (let option of document.getElementsByClassName("multiple")) {
-            option.style.display = "none";
+            option.style.display = "none"; // remove all option buttons
         }
 
+        // display the number of option buttons needed
         for (
             let i = 0;
             i <
@@ -82,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 i
             ].style.display = "block";
         }
-        console.log(options);
     }
 
+    // fetch 10 questions of chosen category and difficulty
     fetch(
         `https://opentdb.com/api.php?amount=${amount}&category=${topicNumbers[triviaTopic]}&difficulty=${triviaDifficulty}`,
         {
@@ -93,66 +96,57 @@ document.addEventListener("DOMContentLoaded", function () {
     )
         .then((response) => response.json())
         .then((data) => {
+            // enable next button
             nextButton.disabled = false;
-            console.log(data);
 
+            // load first question
             loadQuestion(data);
 
             nextButton.addEventListener("click", function () {
+                // check if user selected anything
                 if (
                     document.querySelector('input[name="choice"]:checked') ===
                     null
                 ) {
                     return;
                 }
+                // check if reached set number of questions
                 if (index < amount) {
+                    // check if selected answer is correct
                     if (
                         document.querySelector('input[name="choice"]:checked')
                             .value === data.results[index - 1].correct_answer
                     ) {
-                        console.log("Correct");
                         score++;
                     }
-                    console.log(data.results[index - 1].correct_answer);
-                    console.log(
-                        document.querySelector('input[name="choice"]:checked')
-                            .value
-                    );
+
+                    // uncheck selected option for next question
                     document.querySelector(
                         'input[name="choice"]:checked'
                     ).checked = false;
-                    index++;
+                    index++; // increase question number
+                    // change next button to finish button
                     if (index === amount) {
                         nextButton.innerHTML = "FINISH";
                     }
-                    // load subsequent questions on Next pressed
-                    // console.log(data.results[index - 1]);
-                    // console.log(index);
-                    // document.getElementById("question-number").innerHTML =
-                    //     index;
-                    // document.getElementById("question").innerHTML =
-                    //     data.results[index - 1].question;
-                    // index++;
+                    // load next question on Next pressed
                     loadQuestion(data);
                 } else {
+                    // check answer of last question
                     if (
                         document.querySelector('input[name="choice"]:checked')
                             .value === data.results[index - 1].correct_answer
                     ) {
-                        console.log("Correct");
                         score++;
                     }
-                    console.log(data.results[index - 1].correct_answer);
-                    console.log(
-                        document.querySelector('input[name="choice"]:checked')
-                            .value
-                    );
+                    // disable next button
                     nextButton.disabled = true;
-                    console.log(score);
-                    console.log(document.getElementById("triviaModal"));
+
+                    // create result modal
                     let modal = bootstrap.Modal.getOrCreateInstance(
                         document.getElementById("triviaModal")
                     );
+                    // add results to content
                     document.querySelector(
                         ".modal-body"
                     ).innerHTML = `${(document.getElementById(
@@ -171,15 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         difficultyMultiplier * score,
                         difficultyMultiplier * score
                     ); // Update XP and trophies in the database
-                    modal.show();
+                    modal.show(); // display modal
                     window.removeEventListener(
                         "beforeunload",
                         alertBeforeUnloading
-                    );
+                    ); // remove the alert when leaving page
                     document
                         .getElementById("ok")
                         .addEventListener("click", function () {
-                            location.href = "games.html";
+                            location.href = "games.html"; // go back to home page
                         });
                 }
             });
@@ -276,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// prevent user from accidentally leaving page and losing trivia progress
 let alertBeforeUnloading = function (event) {
     // Cancel the event
     event.preventDefault();

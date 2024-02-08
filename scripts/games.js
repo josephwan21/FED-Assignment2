@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // enable bootstrap tooltips
     const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
     );
@@ -8,7 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fade-in
     document.body.style.opacity = 1;
+
     const APIKEY = "65c246cb514d3948545fda29";
+    // levels
     const xpNeeded = {
         1: 0,
         2: 20,
@@ -26,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         14: 81880,
     };
 
+    // radio button selection
     let triviaTopic = document.querySelector(
         'input[name="category-options-base"]:checked'
     ).value;
@@ -34,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ).value;
 
     const topicRadio = document.getElementById("category-radio");
-    topicRadio.addEventListener("change", updateTopic);
+    topicRadio.addEventListener("change", updateTopic); // retrieve the selected category
     function updateTopic(event) {
         document
             .querySelector(".animation-visible")
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const difficultyRadio = document.getElementById("difficulty-radio");
-    difficultyRadio.addEventListener("change", updateDifficulty);
+    difficultyRadio.addEventListener("change", updateDifficulty); // retrieve the selected difficulty
     function updateDifficulty(event) {
         triviaDifficulty = document.querySelector(
             'input[name="difficulty-options-base"]:checked'
@@ -57,11 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const leaderboardBody = document.getElementById("leaderboard-body");
-    //Clear existing rows
-    // leaderboardBody.innerHTML = "";
+
     //Function to update leaderboard modal content
     function updateLeaderboardModal(data) {
-        leaderboardBody.innerHTML = "";
+        leaderboardBody.innerHTML = ""; // clear existing rows
         //Iterate through the fetched data and create new rows
         data.forEach((user, index) => {
             leaderboardBody.innerHTML += `
@@ -130,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         else if (user.xp < 81880) user.level = 12;
         else user.level = 13;
 
+        // enable any radio buttons and remove tooltips for unlocked items
         for (let level = 2; level <= user.level; level++) {
             for (let unlocked of document.getElementsByClassName(
                 `level-${level}`
@@ -144,8 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+        // update session storage
         sessionStorage.setItem("user", JSON.stringify(user));
 
+        // set min max values of level bar to display
         document.getElementById("level-bar").ariaValueNow = user.xp;
         document.getElementById("level-bar").ariaValueMax =
             xpNeeded[user.level + 1];

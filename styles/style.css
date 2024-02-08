@@ -3,6 +3,7 @@ html {
     height: 100%;
 }
 
+/* top navigation */
 nav {
     position: fixed;
     top: 0;
@@ -24,7 +25,7 @@ body {
     /* background-color: #ffd8a8; */
     font-family: "Lilita One", sans-serif;
     background: linear-gradient(180deg, rgb(13, 202, 240), palegreen);
-    background-attachment: fixed;
+    background-attachment: fixed; /* background fill */
 
     min-height: 100%;
     padding-bottom: 150px;
@@ -89,9 +90,8 @@ body {
 }
 
 /* Games */
-
 #profile-picture {
-    border-radius: 50%;
+    border-radius: 50%; /* round picture */
 }
 
 .btn-check:checked + .btn,
@@ -100,24 +100,7 @@ body {
     color: rgb(201, 107, 1);
 }
 
-/* .btn-primary {
-    background-color: #0dcaf0;
-    border-color: #0dcaf0;
-}
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited {
-    background-color: #0db8da;
-    border-color: #0db8da;
-} */
-
-/*
-* {
-    font-weight: 600;
-}
-*/
-
+/* leaderboard loading animation */
 td dotlottie-player {
     margin: auto;
 }
@@ -145,6 +128,11 @@ form dotlottie-player {
     pointer-events: all;
 }
 
+footer {
+    text-align: center;
+}
+
+/* Trivia */
 #triviaModal .modal-body,
 #triviaModal .modal-header {
     text-transform: capitalize;
@@ -152,10 +140,7 @@ form dotlottie-player {
     text-align: center;
 }
 
-footer {
-    text-align: center;
-}
-
+/* trivia loading animation */
 label dotlottie-player {
     display: inline-block;
 }
