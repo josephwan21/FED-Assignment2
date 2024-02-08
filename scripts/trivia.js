@@ -177,6 +177,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                 }
             });
+        })
+        .catch((error) => {
+            console.error("Error fetching question:", error);
+            document.getElementById("questions-error-message").style.display =
+                "block";
         });
 
     // Function to update XP and trophies in the database & its necessary parameters
