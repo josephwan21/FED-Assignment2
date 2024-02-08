@@ -32,11 +32,13 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="triviaModalLabel"> <!--Title of modal-->
+                        <h1 class="modal-title fs-5" id="triviaModalLabel">
+                            <!--Title of modal-->
                             Trivia Complete!
                         </h1>
                     </div>
-                    <div class="modal-body"> <!--Contents included in the modal once the trivia quiz is finished-->
+                    <div class="modal-body">
+                        <!--Contents included in the modal once the trivia quiz is finished-->
                         Category<br />Score: .../10<br />+... Trophies<br />+...
                         XP
                     </div>
@@ -46,23 +48,26 @@
                         id="ok"
                         data-bs-dismiss="modal"
                     >
-                        OK
-                    </button><!--OK button in the modal-->
+                        OK</button
+                    ><!--OK button in the modal-->
                 </div>
             </div>
         </div>
 
         <article class="container-md text-center">
             <section>
-                <h1 class="my-4">Trivia</h1> <!--Header Name-->
+                <h1 class="my-4">Trivia</h1>
+                <!--Header Name-->
             </section>
-            <h2 id="category-name">Topic Name</h2> <!--Topic/Category Name-->
+            <h2 id="category-name">Topic Name</h2>
+            <!--Topic/Category Name-->
 
             <div class="container">
                 <div class="transparent-rectangle p-2" style="height: 415px">
                     <div class="question-block text-start">
                         <h4 id="question-number">1</h4>
-                        <h2 id="question"> <!--While questions are being loaded lottie animations are placed in before being replaced by the actual questions once retrieved-->
+                        <h2 id="question">
+                            <!--While questions are being loaded lottie animations are placed in before being replaced by the actual questions once retrieved-->
                             <dotlottie-player
                                 src="https://lottie.host/9fdfab16-ff51-4b64-86b8-21ca5c0f42da/jHyrlqiCAG.json"
                                 background="transparent"
@@ -73,8 +78,9 @@
                             ></dotlottie-player>
                         </h2>
 
-                        <div id="multiple-choices" class="mt-4"><!--Respective lottie animations for the loading of questions as well-->
+                        <div id="multiple-choices" class="mt-4">
                             <div class="list-group mt-1">
+                                <!-- option 1 -->
                                 <label
                                     class="list-group-item mt-1 multiple boolean"
                                 >
@@ -83,6 +89,7 @@
                                         name="choice"
                                         value="option1"
                                     />
+                                    <!-- loading animation -->
                                     <dotlottie-player
                                         src="https://lottie.host/bcfd02c9-4ad6-4dd2-8e37-3557703fba0e/CTC3HP1bYt.json"
                                         background="transparent"
@@ -93,12 +100,14 @@
                                     ></dotlottie-player>
                                 </label>
 
+                                <!-- option 2 -->
                                 <label class="list-group-item mt-1 multiple">
                                     <input
                                         type="radio"
                                         name="choice"
                                         value="option2"
                                     />
+                                    <!-- loading animation -->
                                     <dotlottie-player
                                         src="https://lottie.host/bcfd02c9-4ad6-4dd2-8e37-3557703fba0e/CTC3HP1bYt.json"
                                         background="transparent"
@@ -109,12 +118,14 @@
                                     ></dotlottie-player>
                                 </label>
 
+                                <!-- option 3 -->
                                 <label class="list-group-item mt-1 multiple">
                                     <input
                                         type="radio"
                                         name="choice"
                                         value="option3"
                                     />
+                                    <!-- loading animation -->
                                     <dotlottie-player
                                         src="https://lottie.host/bcfd02c9-4ad6-4dd2-8e37-3557703fba0e/CTC3HP1bYt.json"
                                         background="transparent"
@@ -125,6 +136,7 @@
                                     ></dotlottie-player>
                                 </label>
 
+                                <!-- option 4 -->
                                 <label
                                     class="list-group-item mt-1 multiple boolean"
                                 >
@@ -133,6 +145,7 @@
                                         name="choice"
                                         value="option4"
                                     />
+                                    <!-- loading animation -->
                                     <dotlottie-player
                                         src="https://lottie.host/bcfd02c9-4ad6-4dd2-8e37-3557703fba0e/CTC3HP1bYt.json"
                                         background="transparent"
@@ -144,7 +157,8 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="next-btn text-end"><!--Next Question button-->
+                        <div class="next-btn text-end">
+                            <!--Next Question button-->
                             <button
                                 type="button"
                                 class="btn btn-info mt-5"
@@ -166,6 +180,7 @@
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
         ></script>
-        <script src="scripts/trivia.js"></script><!--Link trivia.js JS file to html-->
+        <script src="scripts/trivia.js"></script>
+        <!--Link trivia.js JS file to html-->
     </body>
 </html>
