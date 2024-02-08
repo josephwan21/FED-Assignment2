@@ -100,6 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 console.error("Error fetching leaderboard data:", error);
+                document.getElementById('leaderboard-error-message').style.display = "block";
+                document.getElementById('load-leaderboard').style.display = "none";
+
             });
     }
     // fetchLeaderboardData(APIKEY); // Fetch and update leaderboard data when the page loads
@@ -234,9 +237,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log(updateData);
                 } else {
                     console.error("User not found for update");
+                    document.getElementById('updateacc-error-message').style.display = "block";
                 }
             } catch (error) {
                 console.error("Error updating profile:", error);
+                document.getElementById('updateacc-error-message').style.display = "block";
             }
         }, 7500); // 7500 milliseconds delay before changing the name & email field of the selected user to avoid going past the rate limit of the database
     }

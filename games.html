@@ -77,6 +77,14 @@
                             <strong></strong>
                             <span id="profile-trophies">...</span>
                         </p>
+                        <div
+                            id="updateacc-error-message"
+                            class="alert alert-danger mt-3"
+                            role="alert"
+                            style="display: none"
+                        >
+                            Unable to update profile. Please try again.
+                        </div><!--Should there be an error, an error message should appear-->
                     </div>
                 </div>
             </div>
@@ -119,6 +127,7 @@
                                 <tr>
                                     <td colspan="3">
                                         <dotlottie-player
+                                            id="load-leaderboard"
                                             src="https://lottie.host/9fdfab16-ff51-4b64-86b8-21ca5c0f42da/jHyrlqiCAG.json"
                                             background="transparent"
                                             speed="1"
@@ -126,6 +135,14 @@
                                             loop
                                             autoplay
                                         ></dotlottie-player>
+                                        <div
+                                            id="leaderboard-error-message"
+                                            class="alert alert-danger mt-3"
+                                            role="alert"
+                                            style="display: none"
+                                        >
+                                        Unable to fetch leaderboard data. Please try again.
+                                        </div> <!--Should there be an error, an error message should appear-->
                                     </td>
                                 </tr>
                             </tbody>
