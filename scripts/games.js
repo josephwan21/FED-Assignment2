@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+    );
+    const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
+
     // Fade-in
     document.body.style.opacity = 1;
     const APIKEY = "65c246cb514d3948545fda29";
@@ -128,6 +135,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 `level-${level}`
             )) {
                 unlocked.disabled = false;
+            }
+
+            for (let unlockedLabel of document.getElementsByClassName(
+                `level-${level}-label`
+            )) {
+                bootstrap.Tooltip.getOrCreateInstance(unlockedLabel).disable();
             }
         }
 
