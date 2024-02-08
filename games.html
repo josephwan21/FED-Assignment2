@@ -32,7 +32,8 @@
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="profileModalLabel"><!--Profile Modal Title-->
+                        <h1 class="modal-title fs-5" id="profileModalLabel">
+                            <!--Profile Modal Title-->
                             Profile
                         </h1>
                         <button
@@ -42,7 +43,8 @@
                             aria-label="Close"
                         ></button>
                     </div>
-                    <div class="modal-body"><!--Profile Modal Contents-->
+                    <div class="modal-body">
+                        <!--Profile Modal Contents-->
                         <div class="mb-3">
                             <label for="profile-name" class="form-label"
                                 >Name:</label
@@ -84,7 +86,8 @@
                             style="display: none"
                         >
                             Unable to update profile. Please try again.
-                        </div><!--Should there be an error, an error message should appear-->
+                        </div>
+                        <!--Should there be an error, an error message should appear-->
                     </div>
                 </div>
             </div>
@@ -98,10 +101,12 @@
             aria-labelledby="leaderboardModalLabel"
             aria-hidden="true"
         >
-            <div class="modal-dialog modal-xl modal-dialog-scrollable"><!--Modal set to modal-xl such that the modal size increases with the screen size -->
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <!--Modal set to modal-xl such that the modal size increases with the screen size -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="leaderboardModalLabel"><!--Modal title for leaderboard-->
+                        <h1 class="modal-title fs-5" id="leaderboardModalLabel">
+                            <!--Modal title for leaderboard-->
                             Leaderboard
                         </h1>
                         <button
@@ -111,7 +116,8 @@
                             aria-label="Close"
                         ></button>
                     </div>
-                    <div class="modal-body"> <!--Leaderboard Modal Contents-->
+                    <div class="modal-body">
+                        <!--Leaderboard Modal Contents-->
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -142,8 +148,10 @@
                                             role="alert"
                                             style="display: none"
                                         >
-                                        Unable to fetch leaderboard data. Please try again.
-                                        </div> <!--Should there be an error, an error message should appear-->
+                                            Unable to fetch leaderboard data.
+                                            Please try again.
+                                        </div>
+                                        <!--Should there be an error, an error message should appear-->
                                     </td>
                                 </tr>
                             </tbody>
@@ -178,7 +186,8 @@
                         data-bs-target="#leaderboardModal"
                     >
                         Leaderboard
-                    </button> <!--Button to trigger the leaderboard modal-->
+                    </button>
+                    <!--Button to trigger the leaderboard modal-->
 
                     <div class="dropdown">
                         <a
@@ -201,8 +210,8 @@
                                     data-bs-toggle="modal"
                                     data-bs-target="#profileModal"
                                 >
-                                    View / Edit Profile
-                                </button><!--Button to trigger Profile modal-->
+                                    View / Edit Profile</button
+                                ><!--Button to trigger Profile modal-->
                             </li>
 
                             <li><hr class="dropdown-divider" /></li>
@@ -211,7 +220,8 @@
                                     class="dropdown-item text-danger"
                                     href="index.html"
                                     >Sign Out</a
-                                > <!--Sign out button-->
+                                >
+                                <!--Sign out button-->
                             </li>
                         </ul>
                     </div>
@@ -222,13 +232,16 @@
         <form class="container-md text-center">
             <div class="row gy-5 my-5">
                 <section class="col">
-                    <h1>New Trivia</h1> <!--Header name-->
-                    <p>Level up to unlock more categories and difficulties!</p> <!--Header message-->
+                    <h1>New Trivia</h1>
+                    <!--Header name-->
+                    <p>Level up to unlock more categories and difficulties!</p>
+                    <!--Header message-->
                 </section>
             </div>
             <fieldset id="category-radio" class="row gy-5 mb-5">
                 <section class="categories col">
-                    <h5>Category</h5> <!--Category section-->
+                    <h5>Category</h5>
+                    <!--Category section-->
                     <input
                         type="radio"
                         class="btn-check"
@@ -311,10 +324,12 @@
                         disabled
                     />
                     <label class="btn" for="category-option8">Politics</label>
+
                     <!--Lottie animations for each category-->
                     <dotlottie-player
-                        id="geography-animation"
-                        src="https://lottie.host/12daae61-60eb-431b-be91-c8cc40c6778d/hleTXre2Nz.json"
+                        id="general-knowledge-animation"
+                        class="animation-visible"
+                        src="https://lottie.host/2944bcbd-dea7-4f85-85ee-a560bea1d8d3/VFWGDR5RxA.json"
                         background="transparent"
                         speed="1"
                         style="width: 300px; height: 300px"
@@ -322,9 +337,8 @@
                         autoplay
                     ></dotlottie-player>
                     <dotlottie-player
-                        id="general-knowledge-animation"
-                        class="animation-visible"
-                        src="https://lottie.host/2944bcbd-dea7-4f85-85ee-a560bea1d8d3/VFWGDR5RxA.json"
+                        id="geography-animation"
+                        src="https://lottie.host/b977067c-bd79-4fc6-9bec-a9df1c1b0bb9/xyQ0eLr1TV.json"
                         background="transparent"
                         speed="1"
                         style="width: 300px; height: 300px"
@@ -363,7 +377,8 @@
 
             <fieldset class="row gy-5 mb-5">
                 <section class="col">
-                    <h5>Difficulty</h5> <!--Difficulty Selection Part-->
+                    <h5>Difficulty</h5>
+                    <!--Difficulty Selection Part-->
                     <input
                         type="radio"
                         class="btn-check"
@@ -403,9 +418,10 @@
             </button>
         </form>
 
-        <footer class="py-5"> <!--Inclusion of footer message-->
-            More categories coming soon!<br /><br />This website was made possible
-            with RestDB, Bootstrap and the Open Trivia Database API.
+        <footer class="py-5">
+            <!--Inclusion of footer message-->
+            More categories coming soon!<br /><br />This website was made
+            possible with RestDB, Bootstrap and the Open Trivia Database API.
         </footer>
 
         <script
@@ -418,6 +434,7 @@
             type="module"
         ></script>
 
-        <script src="scripts/games.js"></script> <!--Link games.js to html-->
+        <script src="scripts/games.js"></script>
+        <!--Link games.js to html-->
     </body>
 </html>
