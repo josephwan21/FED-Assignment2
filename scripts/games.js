@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Clear any existing timeout
         clearTimeout(updateTimeout);
 
-        // Set a new timeout
+        // Set a new timeout for updating user credentials
         updateTimeout = setTimeout(async () => {
             try {
                 const response = await fetch(
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log(updateData);
                 } else {
                     console.error("User not found for update");
-                    document.getElementById('updateacc-error-message').style.display = "block";
+                    document.getElementById('updateacc-error-message').style.display = "block"; //Should there be any errors that occur, a message should pop up.
                 }
             } catch (error) {
                 console.error("Error updating profile:", error);

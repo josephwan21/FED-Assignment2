@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-    // Function to update XP and trophies in the database
+    // Function to update XP and trophies in the database & its necessary parameters
     function updateXpAndTrophiesInDatabase(
         name,
         email,
@@ -201,10 +201,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.length > 0) {
                     let userID = data[0]._id;
 
-                    let currentXP = data[0].xp;
+                    let currentXP = data[0].xp; //Current XP & trophies gathered from database
                     let currentTrophies = data[0].trophies;
 
-                    let updatedXP = currentXP + xpIncrement;
+                    let updatedXP = currentXP + xpIncrement; //Add currentXP & trophies with their respective increments from the score gained from the quiz
                     let updatedTrophies = currentTrophies + trophiesIncrement;
 
                     // Update XP and trophies in the database
@@ -216,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 "Content-Type": "application/json",
                                 "x-apikey": APIKEY,
                             },
+                            //Apply updatedXP, trophies and current level to the database
                             body: JSON.stringify({
                                 xp: updatedXP,
                                 trophies: updatedTrophies,
@@ -226,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         .then((response) => response.json())
                         .then((data) => {
                             console.log(data);
-
+                            //Once XP & trophies have been updated, update the sessionStorage as well
                             const updatedUserData = {
                                 name: name,
                                 email: email,
@@ -245,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 "Error updating XP and trophies:",
                                 error
                             );
-                            document.getElementById("XPnTrophy-error-message").style.display = "block";
+                            document.getElementById("XPnTrophy-error-message").style.display = "block"; //Should there be any errors that occur, this message should appear.
                         });
                 } else {
                     console.error("User not found for XP and trophies update");
