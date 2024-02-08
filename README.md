@@ -28,7 +28,7 @@ Welcome to Trivia Quest, where we provide a thrilling and rewarding trivia exper
 
 3. Level up your Profile: Gain experience, level up and see how many trophies you have earned throughout the quizzes you have done in your profile!
 
-4. Compete. Challenge friends or connect with fellow trivia enthusiats. The quest for knowledge on various topics is better shared!
+4. Compete. Challenge friends or connect with fellow trivia enthusiasts. The quest for knowledge on various topics is better shared!
 
 <h3><strong>Get Started</h3></strong>
 
