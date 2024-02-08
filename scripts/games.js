@@ -111,10 +111,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     //Retrieve user (log-in) information from sessionStorage
-    const userData = sessionStorage.getItem("user");
+
+    let userData = sessionStorage.getItem("user");
 
     if (userData) {
         const user = JSON.parse(userData);
+
+        if (user.xp < 20) user.level = 1;
+        else if (user.xp < 60) user.level = 2;
+        else if (user.xp < 140) user.level = 3;
+        else if (user.xp < 300) user.level = 4;
+        else if (user.xp < 620) user.level = 5;
+        else if (user.xp < 1260) user.level = 6;
+        else if (user.xp < 2540) user.level = 7;
+        else if (user.xp < 5100) user.level = 8;
+        else if (user.xp < 10220) user.level = 9;
+        else if (user.xp < 20440) user.level = 10;
+        else if (user.xp < 40920) user.level = 11;
+        else if (user.xp < 81880) user.level = 12;
+        else user.level = 13;
+
+        sessionStorage.setItem("user", JSON.stringify(user));
 
         document.getElementById("level-bar").ariaValueNow = user.xp;
         document.getElementById("level-bar").ariaValueMax =
@@ -124,9 +141,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(
             "level-bar"
         ).innerHTML = `<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${
-            (user.xp / (xpNeeded[user.level + 1] - xpNeeded[user.level])) * 100
+            ((user.xp - xpNeeded[user.level]) /
+                (xpNeeded[user.level + 1] - xpNeeded[user.level])) *
+            100
         }%;" >Level ${user.level}</div>`;
     }
+
+    userData = sessionStorage.getItem("user");
 
     //Check if user data exists
     if (userData) {
