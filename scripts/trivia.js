@@ -245,9 +245,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 "Error updating XP and trophies:",
                                 error
                             );
+                            document.getElementById("XPnTrophy-error-message").style.display = "block";
                         });
                 } else {
                     console.error("User not found for XP and trophies update");
+                    document.getElementById("XPnTrophy-error-message").style.display = "block";
                 }
             })
             .catch((error) => {
@@ -255,6 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Error finding user for XP and trophies update:",
                     error
                 );
+                document.getElementById("XPnTrophy-error-message").style.display = "block";
             });
     }
 });
