@@ -15,10 +15,6 @@ nav {
     z-index: 1;
 }
 
-#profile-picture {
-    border-radius: 50%;
-}
-
 body {
     max-width: 100%;
     overflow-x: hidden;
@@ -93,17 +89,10 @@ body {
 }
 
 /* Games */
-/* .leaderboard-button,
-.leaderboard-button:hover,
-.leaderboard-button:active,
-.leaderboard-button:visited { */
-/* background-color: #f8f9fa; */
-/* background-color: #0dcaf0; */
 
-/* --bs-btn-active-color: black; */
-/* --bs-btn-active-bg: #f8f9fa; */
-/* --bs-btn-active-bg: #0dcaf0; */
-/* } */
+#profile-picture {
+    border-radius: 50%;
+}
 
 .btn-check:checked + .btn,
 .btn-active,

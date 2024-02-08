@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const APIKEY = "65c246cb514d3948545fda29";
     const userData = JSON.parse(sessionStorage.getItem("user"));
+
     // Fade-in
     document.body.style.opacity = 1;
 
+    // Initialisation of trivia details
     let score = 0;
     let amount = 10;
     let topicNumbers = {
@@ -21,13 +23,18 @@ document.addEventListener("DOMContentLoaded", function () {
         vehicles: 28,
         politics: 24,
     };
+    let multipliers = {
+        easy: 2,
+        medium: 4,
+        hard: 6,
+    };
 
+    // Retrieve selected category and difficulty
     let triviaTopic = sessionStorage.getItem("trivia-topic");
     let triviaDifficulty = sessionStorage.getItem("trivia-difficulty");
-    document.getElementById("category-name").innerHTML = triviaTopic.replaceAll(
-        "-",
-        " "
-    );
+    let difficultyMultiplier = multipliers[triviaDifficulty];
+    document.getElementById("category-name").innerHTML =
+        triviaTopic.replaceAll("-", " ") + " - " + triviaDifficulty;
     document.getElementById("category-name").style.textTransform = "capitalize";
     let index = 1;
 
@@ -154,15 +161,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         "-",
                         " "
                     ))}<br />Score: ${score}/10<br />+${
-                        2 * score
-                    } Trophies<br />+${2 * score} XP`;
+                        difficultyMultiplier * score
+                    } Trophies<br />+${difficultyMultiplier * score} XP`;
 
                     updateXpAndTrophiesInDatabase(
                         userData.name,
                         userData.email,
                         userData.level,
-                        2 * score,
-                        2 * score
+                        difficultyMultiplier * score,
+                        difficultyMultiplier * score
                     ); // Update XP and trophies in the database
                     modal.show();
                     window.removeEventListener(
@@ -246,11 +253,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                 "Error updating XP and trophies:",
                                 error
                             );
-                            document.getElementById("XPnTrophy-error-message").style.display = "block"; //Should there be any errors that occur, this message should appear.
+                            document.getElementById(
+                                "XPnTrophy-error-message"
+                            ).style.display = "block"; //Should there be any errors that occur, this message should appear.
                         });
                 } else {
                     console.error("User not found for XP and trophies update");
-                    document.getElementById("XPnTrophy-error-message").style.display = "block";
+                    document.getElementById(
+                        "XPnTrophy-error-message"
+                    ).style.display = "block";
                 }
             })
             .catch((error) => {
@@ -258,7 +269,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Error finding user for XP and trophies update:",
                     error
                 );
-                document.getElementById("XPnTrophy-error-message").style.display = "block";
+                document.getElementById(
+                    "XPnTrophy-error-message"
+                ).style.display = "block";
             });
     }
 });
