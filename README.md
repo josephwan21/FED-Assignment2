@@ -78,9 +78,9 @@ What the website caters for
 
 <h3><strong>Collaboration</h3></strong>
 
--   For the assignment, I have done the main structure for the log in page (index.html), applied the blue-green gradient, Google Font (Lilita One) and the main structure of the trivia page as well (trivia.html). Worked on the Profile modal and the gathering of leaderboard data from the database in the games page (games.html).
+-   The main structure for the log in page (index.html), application of the blue-green gradient, Google Font (Lilita One) and the main structure of the trivia page as well (trivia.html) was contributed by Joseph and also developed on the Profile modal and the gathering of leaderboard data from the database in the games page (games.html).
 
--   Special thanks to Timothy Chai for his contributions to the main structure of the games.html page which included the leaderboard modal, games.js JavaScript code to set the trivia categories and difficulties up, trivia.js JavaScript file for implementing the fetching of questions from Open Trivia Database and for also noting out my mistakes and issues I have with my code. He has also applied lottie animations for each category in the games.html page and the loading of questions in the trivia.html page.
+-   Timothy has contributed quite a bit to the main structure of the games.html page which included the leaderboard modal, games.js JavaScript code to set the trivia categories and difficulties up, trivia.js JavaScript file for implementing the fetching of questions from Open Trivia Database. Lottie animations are implemented for each category in the games.html page and the loading of questions in the trivia.html page.
 
 <h3><strong>Media</h3></strong>
 
