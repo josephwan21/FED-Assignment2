@@ -3,6 +3,22 @@ html {
     height: 100%;
 }
 
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1;
+}
+
+#profile-picture {
+    border-radius: 50%;
+}
+
 body {
     max-width: 100%;
     overflow-x: hidden;
@@ -77,6 +93,9 @@ body {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
 /* Games */
@@ -116,6 +135,19 @@ body {
 }
 */
 
+td dotlottie-player {
+    margin: auto;
+}
+
+.progress {
+    width: 15%;
+}
+
+.leaderboard-button,
+.dropdown {
+    display: inline-block;
+}
+
 form dotlottie-player {
     display: none;
 }
@@ -139,4 +171,8 @@ form dotlottie-player {
 
 footer {
     text-align: center;
+}
+
+label dotlottie-player {
+    display: inline-block;
 }

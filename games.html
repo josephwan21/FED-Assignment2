@@ -51,7 +51,7 @@
                                 type="text"
                                 class="form-control"
                                 id="profile-name"
-                                value="Wong Jun Jie"
+                                value="..."
                             />
                         </div>
                         <div class="mb-3">
@@ -62,16 +62,16 @@
                                 type="email"
                                 class="form-control"
                                 id="profile-email"
-                                value="wongjunjie@gmail.com"
+                                value="..."
                             />
                         </div>
                         <p>
                             <strong>Level:</strong>
-                            <span id="profile-level">11</span>
+                            <span id="profile-level">...</span>
                         </p>
                         <p>
                             <strong>Trophies:</strong>
-                            <span id="profile-trophies">35</span>
+                            <span id="profile-trophies">...</span>
                         </p>
                     </div>
                 </div>
@@ -112,15 +112,17 @@
                                 class="table-group-divider"
                                 id="leaderboard-body"
                             >
-                                <tr class="table-active">
-                                    <th scope="row">1</th>
-                                    <td>Timothy</td>
-                                    <td>5726</td>
-                                </tr>
                                 <tr>
-                                    <th scope="row">2</th>
-                                    <td>Otto</td>
-                                    <td>1001</td>
+                                    <td colspan="3">
+                                        <dotlottie-player
+                                            src="https://lottie.host/9fdfab16-ff51-4b64-86b8-21ca5c0f42da/jHyrlqiCAG.json"
+                                            background="transparent"
+                                            speed="1"
+                                            style="width: 100px; height: 100px"
+                                            loop
+                                            autoplay
+                                        ></dotlottie-player>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -137,15 +139,101 @@
                 </div>
             </div>
         </div>
-        <button
-            class="nav-link active leaderboard-button"
-            data-bs-toggle="modal"
-            data-bs-target="#leaderboardModal"
-            style="position: absolute"
-        >
-            Leaderboard
-        </button>
+
         <header>
+            <nav>
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Basic example"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                >
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated"
+                        style="width: 50%"
+                    >
+                        1
+                    </div>
+                </div>
+                <div>
+                    <button
+                        class="nav-link active leaderboard-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#leaderboardModal"
+                    >
+                        Leaderboard
+                    </button>
+
+                    <div class="dropdown">
+                        <a
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <img
+                                id="profile-picture"
+                                src="images/blank-profile-picture.png"
+                                width="50px"
+                            />
+                        </a>
+                        <!-- <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <div>
+                        <img
+                            src="/images/blank-profile-picture.png"
+                            width="20px"
+                        />
+                        <div
+                            class="progress"
+                            role="progressbar"
+                            aria-label="Basic example"
+                            aria-valuenow="25"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                        >
+                            <div
+                                class="progress-bar"
+                                style="width: 25%"
+                            ></div>
+                        </div>
+                    </div>
+                </a> -->
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button
+                                    class="dropdown-item"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#profileModal"
+                                >
+                                    View / Edit Profile
+                                </button>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"
+                                    >Another action</a
+                                >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a
+                                    class="dropdown-item text-danger"
+                                    href="index.html"
+                                    >Sign Out</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- 
             <nav class="navbar navbar-expand-sm fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">Logo</a>
@@ -165,27 +253,9 @@
                         id="navbarSupportedContent"
                     >
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <!-- <li class="nav-item">
-                                <a
-                                    class="nav-link active"
-                                    aria-current="page"
-                                    href="#"
-                                    >Games</a
-                                >
-                            </li> -->
-                            <!-- Button trigger modal -->
-                            <!-- <button
-                                class="nav-link active leaderboard-button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#leaderboardModal"
-                            >
-                                Leaderboard
-                            </button>
-                            <li class="nav-item">
-                                <a class="nav-link" href="leaderboard.html"
-                                    >Leaderboard</a
-                                >
-                            </li> -->
+                            
+                           
+                            
                             <li class="nav-item dropdown">
                                 <a
                                     href="#"
@@ -213,7 +283,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <!-- <a
+                                 <a
                                     class="nav-link dropdown-toggle"
                                     href="#"
                                     role="button"
@@ -239,12 +309,11 @@
                                             ></div>
                                         </div>
                                     </div>
-                                </a> -->
+                                </a> 
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <button
-                                            type="button"
-                                            class="nav-link btn btn-info"
+                                            class="dropdown-item"
                                             data-bs-toggle="modal"
                                             data-bs-target="#profileModal"
                                         >
@@ -266,8 +335,8 @@
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
-                        <!-- <form class="d-flex" role="search">
+                        </ul>-->
+            <!-- <form class="d-flex" role="search">
                             <input
                                 class="form-control me-2"
                                 type="search"
@@ -280,11 +349,11 @@
                             >
                                 Search
                             </button>
-                        </form> -->
+                        </form> 
                     </div>
                 </div>
             </nav>
-        </header>
+        --></header>
 
         <form class="container-md text-center">
             <div class="row gy-5 my-5">

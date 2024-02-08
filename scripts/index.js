@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to handle create account form submission
     function handleCreateAccount() {
-        let createEmail = document.getElementById("create-email").value;
+        let createEmail = document
+            .getElementById("create-email")
+            .value.toLowerCase();
         let createName = document.getElementById("create-username").value;
         let createPassword = document.getElementById("create-password").value;
 
@@ -65,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (EmailFormat) {
             jsondata = {
-                email: signInInput,
+                email: signInInput.toLowerCase(),
                 password: signInPassword,
             };
         } else {
@@ -102,10 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let username = data[0].name;
 
-                    sessionStorage.setItem('user', JSON.stringify(data[0]));
+                    sessionStorage.setItem("user", JSON.stringify(data[0]));
 
                     // Display personalized welcome message
-                    document.getElementById("welcome-message").style.display = "block";
+                    document.getElementById("welcome-message").style.display =
+                        "block";
                     document.getElementById(
                         "welcome-message"
                     ).innerText = `Welcome, ${username}!`;
@@ -118,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     }, 2000);
                 } else {
                     // No matching entries, show error message
-                    document.getElementById("invalid-message").style.display = "block";
+                    document.getElementById("invalid-message").style.display =
+                        "block";
                     console.error("Invalid username or password.");
                 }
             })
