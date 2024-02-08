@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
                 if (index < amount) {
-                    // check if user selected an option already
                     if (
                         document.querySelector('input[name="choice"]:checked')
                             .value === data.results[index - 1].correct_answer
@@ -129,6 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     // index++;
                     loadQuestion(data);
                 } else {
+                    if (
+                        document.querySelector('input[name="choice"]:checked')
+                            .value === data.results[index - 1].correct_answer
+                    ) {
+                        console.log("Correct");
+                        score++;
+                    }
+                    console.log(data.results[index - 1].correct_answer);
+                    console.log(
+                        document.querySelector('input[name="choice"]:checked')
+                            .value
+                    );
                     nextButton.disabled = true;
                     console.log(score);
                     console.log(document.getElementById("triviaModal"));
