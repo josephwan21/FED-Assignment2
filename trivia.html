@@ -20,7 +20,7 @@
         <title>Trivia</title>
     </head>
     <body>
-        <!-- Modal -->
+        <!-- Trivia Complete! Modal -->
         <div
             class="modal fade"
             id="triviaModal"
@@ -32,28 +32,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="triviaModalLabel">
+                        <h1 class="modal-title fs-5" id="triviaModalLabel"> <!--Title of modal-->
                             Trivia Complete!
                         </h1>
-                        <!-- <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></button> -->
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"> <!--Contents included in the modal once the trivia quiz is finished-->
                         Category<br />Score: .../10<br />+... Trophies<br />+...
                         XP
                     </div>
-                    <!-- <div class="modal-footer"> -->
-                    <!-- <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                        >
-                            Close
-                        </button> -->
                     <button
                         type="button"
                         class="btn btn-primary"
@@ -61,23 +47,22 @@
                         data-bs-dismiss="modal"
                     >
                         OK
-                    </button>
-                    <!-- </div> -->
+                    </button><!--OK button in the modal-->
                 </div>
             </div>
         </div>
 
         <article class="container-md text-center">
-            <section class="">
-                <h1 class="my-4">Trivia</h1>
+            <section>
+                <h1 class="my-4">Trivia</h1> <!--Header Name-->
             </section>
-            <h2 id="category-name">Topic Name</h2>
+            <h2 id="category-name">Topic Name</h2> <!--Topic/Category Name-->
 
             <div class="container">
                 <div class="transparent-rectangle p-2" style="height: 415px">
                     <div class="question-block text-start">
                         <h4 id="question-number">1</h4>
-                        <h2 id="question">
+                        <h2 id="question"> <!--While questions are being loaded lottie animations are placed in before being replaced by the actual questions once retrieved-->
                             <dotlottie-player
                                 src="https://lottie.host/9fdfab16-ff51-4b64-86b8-21ca5c0f42da/jHyrlqiCAG.json"
                                 background="transparent"
@@ -88,7 +73,7 @@
                             ></dotlottie-player>
                         </h2>
 
-                        <div id="multiple-choices" class="mt-4">
+                        <div id="multiple-choices" class="mt-4"><!--Respective lottie animations for the loading of questions as well-->
                             <div class="list-group mt-1">
                                 <label
                                     class="list-group-item mt-1 multiple boolean"
@@ -159,7 +144,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="next-btn text-end">
+                        <div class="next-btn text-end"><!--Next Question button-->
                             <button
                                 type="button"
                                 class="btn btn-info mt-5"
@@ -181,6 +166,6 @@
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
         ></script>
-        <script src="scripts/trivia.js"></script>
+        <script src="scripts/trivia.js"></script><!--Link trivia.js JS file to html-->
     </body>
 </html>
