@@ -60,11 +60,11 @@ What the website caters for
 
 ## Features
 
--   Gamified features/elements such as having a level and XP which can be increased through doing the quizzes and gaining experience points from them.
+-   Gamified features/elements such as having a level and XP which can be increased through doing the quizzes and gaining experience points from them. (Feature developed by Timothy. Updating of the database done by Joseph)
 
--   Hassle-free Profile Editing. Instead of having your usual edit button to edit your profile, users could edit their profile fields on the spot without having to press any sort of 'Edit' button and the updated profile fields get automatically saved to the database.
+-   Hassle-free Profile Editing. Instead of having your usual edit button to edit your profile, users could edit their profile fields on the spot without having to press any sort of 'Edit' button and the updated profile fields get automatically saved to the database. (Feature done by Joseph)
 
--   Animations when selecting different categories. There are animations set in place when the user tries to select a particular category 
+-   Animations when selecting different categories. There are animations set in place when the user tries to select a particular category in the games page (games.html) (Feature done by Timothy)
 
 ## Technologies Used
 
@@ -78,15 +78,17 @@ What the website caters for
 
 <h3><strong>Collaboration</h3></strong>
 
--   For the assignment, I have done the main structure for the log in page (index.html), applied the blue-green gradient and the trivia page as well (trivia.html). Worked on the Profile modal and the gathering of leaderboard data from the database in the games page (games.html).
--   Special thanks to Timothy Chai for his contributions to the main structure of the games.html page, games.js JavaScript code to set the trivia categories and difficulties up, trivia.js JavaScript file for implementing the fetching of questions from Open Trivia Database and for also noting out my mistakes and issues I have with my code. He has also applied lottie animations for each category in the games.html page and the loading of questions in the trivia.html page.
+-   For the assignment, I have done the main structure for the log in page (index.html), applied the blue-green gradient, Google Font (Lilita One) and the main structure of the trivia page as well (trivia.html). Worked on the Profile modal and the gathering of leaderboard data from the database in the games page (games.html).
+
+-   Special thanks to Timothy Chai for his contributions to the main structure of the games.html page which included the leaderboard modal, games.js JavaScript code to set the trivia categories and difficulties up, trivia.js JavaScript file for implementing the fetching of questions from Open Trivia Database and for also noting out my mistakes and issues I have with my code. He has also applied lottie animations for each category in the games.html page and the loading of questions in the trivia.html page.
 
 <h3><strong>Media</h3></strong>
 
 - Blank Profile Pic from: https://laiacc.com/executive-board-2/blank-profile-picture-973460_1280/
 
-<h3><strong>Lottie Animations</h3><strong>
-- Lottie Animations were used 
+<h3><strong>Animations</h3><strong>
+
+- Lottie Animations were used from https://lottiefiles.com/
 
 <h3><strong>API</h3></strong>
 
