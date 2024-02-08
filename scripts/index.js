@@ -8,10 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleCreateAccount() {
         let createEmail = document
             .getElementById("create-email")
-            .value.toLowerCase();
-        let createName = document.getElementById("create-username").value;
-        let createPassword = document.getElementById("create-password").value;
+            .value.toLowerCase(); //Set email to lowercase to accept emails that may have capitalised letters in it 
+        let createName = document.getElementById("create-username").value;  //Value of name in account creation
+        let createPassword = document.getElementById("create-password").value; //Value of password in account creation
 
+        //Assign values to the JSON in the database
         let jsondata = {
             email: createEmail,
             name: createName,
@@ -20,13 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
             level: 0,
             trophies: 0,
         };
-
+        //Assign settings to perform a POST request
         let settings = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "x-apikey": APIKEY,
-                // "Cache-Control": "no-cache",
             },
             body: JSON.stringify(jsondata),
             beforeSend: function () {
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("createacc-form").reset();
             },
         };
-
-        document.getElementById("email-error-message").style.display = "none";
+        
+        //When creating an account again, turn off the success message
         document.getElementById("success-message").style.display = "none";
         fetch("https://fedassg2-4ddb.restdb.io/rest/accounts", settings)
             .then((response) => response.json())
@@ -45,15 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Success message shown if account is successfully created.
                 document.getElementById("success-message").style.display =
                     "block";
+            })
+            //Should there be an errors found, display it in the console and in the page for the user to see as well.
+            .catch((error) => {
+                console.error("Account creation failed:", error);
+                document.getElementById("acc-error-message").style.display = "block";
             });
     }
 
-    // Attach the form submission handler
     document
         .getElementById("createacc-form")
         .addEventListener("submit", function (e) {
-            e.preventDefault();
-            handleCreateAccount();
+            e.preventDefault(); //Prevent default action of form submission
+            handleCreateAccount(); //Call function
         });
 
     // Sign in form submission handling code...
@@ -61,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let signInInput = document.getElementById("username").value;
         let signInPassword = document.getElementById("password").value;
 
-        let EmailFormat = signInInput.includes("@");
+        let EmailFormat = signInInput.includes("@"); //Checks whether there's an '@' in the sign in input to indicate whether it is a name or email.
 
         let jsondata;
-
+        //Assigning values to the database
         if (EmailFormat) {
             jsondata = {
                 email: signInInput.toLowerCase(),
@@ -76,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 password: signInPassword,
             };
         }
-
+        //Assigning settings to perform a GET request
         let settings = {
             method: "GET",
             headers: {
@@ -85,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Cache-Control": "no-cache",
             },
         };
-
+        //If user tries to sign in again, the invalid username or email message should be turned off and reappear if the inputs are still invalid.
         document.getElementById("invalid-message").style.display = "none";
         fetch(
             `https://fedassg2-4ddb.restdb.io/rest/accounts?q=${JSON.stringify(
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "welcome-message"
                     ).innerText = `Welcome, ${username}!`;
 
-                    document.getElementById("signin-form").reset();
+                    document.getElementById("signin-form").reset(); //Form clears after successfully signing in
 
                     //Redirect to games.html
                     setTimeout(function () {
@@ -126,11 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Invalid username or password.");
                 }
             })
+            //Should there be any errors that occur, error message should pop up in both the console and the webpage for the user to be notified by it.
             .catch((error) => {
                 console.error("Error during sign-in:", error);
+                document.getElementById("signin-error-message").style.display = "block";
             });
     }
-
+    //Handle sign in function is called when user presses the Sign In button
     document
         .getElementById("signin-form")
         .addEventListener("submit", function (e) {
