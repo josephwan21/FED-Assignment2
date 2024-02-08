@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.opacity = 1;
     const APIKEY = "65c246cb514d3948545fda29";
     const xpNeeded = {
+        1: 0,
         2: 20,
         3: 60,
         4: 140,
@@ -43,6 +44,25 @@ document.addEventListener("DOMContentLoaded", function () {
         ).value;
     }
 
+    // function fetchLevel(key) {
+    //     let levelBar = document.getElementById("level-bar");
+    //     fetch("https://fedassg2-4ddb.restdb.io/rest/accounts", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "x-apikey": key,
+    //             "Cache-Control": "no-cache",
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             levelBar.ariaValueNow = data.;
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error fetching level data:", error);
+    //         });
+    // }
+    // fetchLevel(APIKEY);
     const leaderboardBody = document.getElementById("leaderboard-body");
     //Clear existing rows
     // leaderboardBody.innerHTML = "";
@@ -92,6 +112,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Retrieve user (log-in) information from sessionStorage
     const userData = sessionStorage.getItem("user");
+
+    if (userData) {
+        const user = JSON.parse(userData);
+
+        document.getElementById("level-bar").ariaValueNow = user.xp;
+        document.getElementById("level-bar").ariaValueMax =
+            xpNeeded[user.level + 1];
+        document.getElementById("level-bar").ariaValueMin =
+            xpNeeded[user.level];
+        document.getElementById(
+            "level-bar"
+        ).innerHTML = `<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${
+            (user.xp / (xpNeeded[user.level + 1] - xpNeeded[user.level])) * 100
+        }%;" >Level ${user.level}</div>`;
+    }
 
     //Check if user data exists
     if (userData) {
