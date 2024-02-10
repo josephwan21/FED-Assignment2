@@ -251,6 +251,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const updateData = await updateResponse.json();
                     console.log(updateData);
+
+                    // Update sessionStorage
+                    const updatedUser = {
+                        ...matchingUser,
+                        name: newName,
+                        email: newEmail,
+                    };
+
+                    sessionStorage.setItem("user", JSON.stringify(updatedUser));
                 } else {
                     console.error("User not found for update");
                     document.getElementById(
